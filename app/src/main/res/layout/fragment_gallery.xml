@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/holo_blue_light">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/search_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="Gallery Fragment"
+                android:textSize="30sp" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/gallery_folder"
+                    android:text=" Sunflower"
+                    android:textSize="14dp"
+                    android:textColor="@android:color/white"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/Theme.AppCompat.DayNight.NoActionBar"
+                    android:gravity="start" />
+
+                <Button
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/gallery_folder"
+                    android:text=" Mossodmak"
+                    android:textSize="14dp"
+                    android:textColor="@android:color/white"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/Theme.AppCompat.DayNight.NoActionBar"
+                    android:gravity="start" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/gallery_folder"
+                    android:text=" Pongngai"
+                    android:textSize="14dp"
+                    android:textColor="@android:color/white"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/Theme.AppCompat.DayNight.NoActionBar"
+                    android:gravity="start" />
+
+                <Button
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/gallery_folder"
+                    android:text=" Peepmax"
+                    android:textSize="14dp"
+                    android:textColor="@android:color/white"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@style/Theme.AppCompat.DayNight.NoActionBar"
+                    android:gravity="start" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <Button
+                android:id="@+id/galleryButton1"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:text=" Mossodmak"
+                android:textSize="12dp"
+                android:textColor="@android:color/white"
+                android:textAlignment="gravity"
+                android:textAppearance="@style/Theme.AppCompat.DayNight.NoActionBar"
+                android:gravity="start"
+                android:background="@drawable/gallery_folder" />
+
+            <Button
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/gallery_folder" />
+
+            <Button
+                android:id="@+id/galleryButton2"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/gallery_folder" />
+
+            <Button
+                android:id="@+id/galleryButton3"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/gallery_folder" />
+
+            <Button
+                android:id="@+id/galleryButton4"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/gallery_folder" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>
