@@ -18,8 +18,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".TestRecycleView"></activity>
-        <activity android:name=".ShowResult"></activity>
+        <activity
+            android:name=".TestRecycleView"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ShowResult"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">

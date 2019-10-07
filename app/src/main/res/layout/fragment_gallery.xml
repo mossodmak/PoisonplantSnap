@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/holo_blue_light">
+    android:background="@drawable/weed_background">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,6 +23,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:text="Gallery Fragment"
+                android:textColor="@android:color/white"
                 android:textSize="30sp" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -97,13 +98,13 @@
                 android:layout_height="130dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
+                android:background="@drawable/gallery_folder"
+                android:gravity="start"
                 android:text=" Mossodmak"
-                android:textSize="12dp"
-                android:textColor="@android:color/white"
                 android:textAlignment="gravity"
                 android:textAppearance="@style/Theme.AppCompat.DayNight.NoActionBar"
-                android:gravity="start"
-                android:background="@drawable/gallery_folder" />
+                android:textColor="@android:color/white"
+                android:textSize="12dp" />
 
             <Button
                 android:layout_width="130dp"

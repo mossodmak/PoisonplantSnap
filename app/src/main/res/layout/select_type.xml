@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/identify_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background" >
+    <TextView
+        android:id="@+id/identified_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Choose a photo type" />
+
+    <ImageView
+        android:id="@+id/identified_image"
+        android:layout_width="224dp"
+        android:layout_height="224dp"
+        android:layout_below="@+id/identified_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
+
+    <LinearLayout
+        android:id="@+id/identified_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/identified_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/shape_button">
+
+        <Button
+            android:id="@+id/identified_btn_leaf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Leaf"
+            android:layout_marginHorizontal="2dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/gallery_folder"/>
+
+        <Button
+            android:id="@+id/identified_btn_flower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Flower"
+            android:textColor="@android:color/white"
+            android:background="@drawable/gallery_folder" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

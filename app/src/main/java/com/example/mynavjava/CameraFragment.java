@@ -29,7 +29,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
-import com.soundcloud.android.crop.Crop;
+//import com.soundcloud.android.crop.Crop;
 
 import java.io.File;
 import java.io.IOException;
@@ -159,38 +159,38 @@ public class CameraFragment extends Fragment {
 
             Uri pickedImage = data.getData();
             try {
-                selectedImage.setImageURI(pickedImage);
+//                selectedImage.setImageURI(pickedImage);
                 Bitmap imageBitmapGallery = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), pickedImage);
                 imageBitmapGallery = Bitmap.createScaledBitmap(imageBitmapGallery, INPUT_SIZE, INPUT_SIZE, false);
 
 
                 Intent intent = new Intent(cons, ShowResult.class);
                 intent.putExtra("photo", imageBitmapGallery);
-//                intent.putExtra("DIR_PATH", directoryPath);
-//                intent.putExtra("URI_IMAGE", pickedImage);
+//              intent.putExtra("DIR_PATH", directoryPath);
+//              intent.putExtra("URI_IMAGE", pickedImage);
                 startActivity(intent);
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-        } if(requestCode == Crop.REQUEST_CROP && resultCode == RESULT_OK){
-            imageUri = Crop.getOutput(data);
-            Toast.makeText(cons, "into crop", Toast.LENGTH_SHORT).show();
-            try {
-                Bitmap image = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), imageUri);
-                image = Bitmap.createScaledBitmap(image ,INPUT_SIZE, INPUT_SIZE, false);
-                Intent intent = new Intent(cons, ShowResult.class);
-                intent.putExtra("photo", image);
-//                intent.putExtra("DIR_PATH", directoryPath);
-//                intent.putExtra("URI_IMAGE", pickedImage);
-                Toast.makeText(getActivity(), "Cropped", Toast.LENGTH_SHORT).show();
-                startActivity(intent);
-            }catch (IOException e){
-                e.printStackTrace();
-                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-            }
-        }
+        } //if(requestCode == Crop.REQUEST_CROP && resultCode == RESULT_OK){
+//            imageUri = Crop.getOutput(data);
+//            Toast.makeText(cons, "into crop", Toast.LENGTH_SHORT).show();
+//            try {
+//                Bitmap image = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), imageUri);
+//                image = Bitmap.createScaledBitmap(image ,INPUT_SIZE, INPUT_SIZE, false);
+//                Intent intent = new Intent(cons, ShowResult.class);
+//                intent.putExtra("photo", image);
+////                intent.putExtra("DIR_PATH", directoryPath);
+////                intent.putExtra("URI_IMAGE", pickedImage);
+//                Toast.makeText(getActivity(), "Cropped", Toast.LENGTH_SHORT).show();
+//                startActivity(intent);
+//            }catch (IOException e){
+//                e.printStackTrace();
+//                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+//            }
+//        }
     }
     private File createImageFile() throws IOException {
         // Create an image file name
