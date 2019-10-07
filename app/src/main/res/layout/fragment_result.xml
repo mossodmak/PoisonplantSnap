@@ -18,7 +18,7 @@
         android:textSize="30sp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageResult"
         android:layout_width="224dp"
         android:layout_height="224dp"
         android:layout_marginStart="8dp"
@@ -76,7 +76,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:orientation="horizontal"
-        android:layout_below="@+id/imageView2"
+        android:layout_below="@+id/imageResult"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +91,7 @@
             tools:srcCompat="@tools:sample/avatars[0]" />
 
         <Button
-            android:id="@+id/button_path"
+            android:id="@+id/button_result1"
             android:layout_width="179dp"
             android:layout_height="86dp"
             android:layout_weight="1"
