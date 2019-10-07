@@ -81,8 +81,8 @@ public class CameraFragment extends Fragment {
         btn_captureImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openCameraIntent();
-                //Intent cameraView = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                //openCameraIntent();
+                Intent cameraView = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 // Ensure that there's a camera activity to handle the intent
 //                if (cameraView.resolveActivity(getActivity().getPackageManager()) != null) {
 //                    // Create the File where the photo should go
@@ -97,7 +97,7 @@ public class CameraFragment extends Fragment {
 //                        startActivityForResult(cameraView, CAMERA_REQUEST_CODE);
 //                    }
 //                }
-                //startActivityForResult(cameraView, CAMERA_REQUEST_CODE);
+                startActivityForResult(cameraView, CAMERA_REQUEST_CODE);
 
             }
         });
