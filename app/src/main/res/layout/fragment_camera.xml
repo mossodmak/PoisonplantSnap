@@ -23,7 +23,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="Camera Fragment"
+        android:text="PoisonplantSnap"
         android:textColor="@android:color/white"
         android:textSize="30sp" />
 

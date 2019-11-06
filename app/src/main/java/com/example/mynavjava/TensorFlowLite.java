@@ -29,7 +29,7 @@ public class TensorFlowLite implements Classifier {
     private boolean quant;
     private static final float IMAGE_MEAN = 127.5f;
     private static final float IMAGE_STD = 127.5f;
-    private static final float THRESHOLD = 0.1f;
+    private static final float THRESHOLD = 0.5f;
 
     static Classifier create(AssetManager assetManager,
                              String modelPath,
@@ -168,9 +168,9 @@ public class TensorFlowLite implements Classifier {
 
         for (int i = 0; i < labelList.size(); ++i) {
             float confidence = labelProbArray[0][i];
-            // if (confidence > THRESHOLD) {
+                //if (confidence > THRESHOLD) {
             pq.add(new Recognition(labelList.size() > i ? labelList.get(i) : "unknown", quant, confidence));
-            //}
+                //}
         }
 
         final ArrayList<Recognition> recognitions = new ArrayList<>();

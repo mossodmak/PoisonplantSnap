@@ -11,7 +11,7 @@
         android:textSize="30dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="Choose a photo type" />
+        android:text="Choose related organ" />
 
     <ImageView
         android:id="@+id/identified_image"
@@ -19,7 +19,7 @@
         android:layout_height="224dp"
         android:layout_below="@+id/identified_title"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="50dp"/>
 
     <LinearLayout
         android:id="@+id/identified_layout"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/identified_image"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/shape_button">
 
         <Button
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Leaf"
-            android:layout_marginHorizontal="2dp"
+            android:layout_marginHorizontal="20dp"
             android:textColor="@android:color/white"
             android:background="@drawable/gallery_folder"/>
 
@@ -44,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Flower"
+            android:layout_marginHorizontal="20dp"
             android:textColor="@android:color/white"
             android:background="@drawable/gallery_folder" />
 

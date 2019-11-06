@@ -5,7 +5,7 @@
     android:id="@+id/show_result_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_light">
+    android:background="@color/background">
 
     <TextView
         android:id="@+id/show_result_title"
@@ -35,16 +35,26 @@
         app:layout_constraintVertical_bias="0.148"
         tools:srcCompat="@tools:sample/backgrounds/scenic[9]" />
 
+    <TextView
+        android:id="@+id/show_result_textResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/show_result_imageResult"
+        android:text="Mossodmak"
+        android:textSize="24dp"
+        />
+
     <LinearLayout
         android:id="@+id/show_result_layout1"
-        android:layout_width="344dp"
-        android:layout_height="87dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:orientation="horizontal"
-        android:layout_below="@+id/show_result_imageResult"
+        android:layout_below="@+id/show_result_textResult"
         android:layout_centerHorizontal="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,14 +65,14 @@
         <ImageView
             android:id="@+id/show_result_imv1"
             android:layout_width="43dp"
-            android:layout_height="88dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
             tools:srcCompat="@tools:sample/avatars[0]" />
 
         <Button
             android:id="@+id/show_result_btn1"
             android:layout_width="179dp"
-            android:layout_height="86dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:text="Button" />
 
@@ -70,8 +80,8 @@
 
     <LinearLayout
         android:id="@+id/show_result_layout2"
-        android:layout_width="344dp"
-        android:layout_height="87dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/show_result_layout1"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -89,22 +99,22 @@
         <ImageView
             android:id="@+id/show_result_imv2"
             android:layout_width="43dp"
-            android:layout_height="88dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
             tools:srcCompat="@tools:sample/avatars[1]" />
 
         <Button
             android:id="@+id/show_result_btn2"
             android:layout_width="179dp"
-            android:layout_height="86dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:text="Button" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/show_result_layout3"
-        android:layout_width="344dp"
-        android:layout_height="87dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -122,14 +132,14 @@
         <ImageView
             android:id="@+id/show_result_imv3"
             android:layout_width="43dp"
-            android:layout_height="88dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
             tools:srcCompat="@tools:sample/avatars[2]" />
 
         <Button
             android:id="@+id/show_result_btn3"
             android:layout_width="179dp"
-            android:layout_height="86dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:text="Button" />
 

@@ -149,7 +149,7 @@ public class CameraFragment extends Fragment {
             imageBitmapCamera = Bitmap.createScaledBitmap(imageBitmapCamera, INPUT_SIZE, INPUT_SIZE, false);
 
 
-            Intent intent = new Intent(cons, ShowResult.class);
+            Intent intent = new Intent(cons, IdentifyType.class);
             intent.putExtra("photo", imageBitmapCamera);
             //intent.putExtra("DIR_PATH", directoryPath);
             startActivity(intent);
@@ -164,7 +164,7 @@ public class CameraFragment extends Fragment {
                 imageBitmapGallery = Bitmap.createScaledBitmap(imageBitmapGallery, INPUT_SIZE, INPUT_SIZE, false);
 
 
-                Intent intent = new Intent(cons, ShowResult.class);
+                Intent intent = new Intent(cons, IdentifyType.class);
                 intent.putExtra("photo", imageBitmapGallery);
 //              intent.putExtra("DIR_PATH", directoryPath);
 //              intent.putExtra("URI_IMAGE", pickedImage);

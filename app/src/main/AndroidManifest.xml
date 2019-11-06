@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature
@@ -18,12 +19,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <activity android:name=".ViewInfo">
+
+        </activity>
         <activity
             android:name=".TestRecycleView"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ShowResult"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".IdentifyType"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
@@ -33,6 +41,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.mynavjava"
@@ -40,10 +49,11 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
-        </provider>
-        <!-- cropped activity -->
-        <activity android:name="com.soundcloud.android.crop.CropImageActivity" android:screenOrientation="portrait"/>
+                android:resource="@xml/file_paths" />
+        </provider> <!-- cropped activity -->
+        <activity
+            android:name="com.soundcloud.android.crop.CropImageActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

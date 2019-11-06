@@ -17,6 +17,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.File;
 
@@ -28,14 +33,28 @@ public class MainActivity extends AppCompatActivity {
     private final String filename = "PoisonPlantSnap";
     private File folder;
     private String folderPath;
+    //private String test;
+    private DatabaseReference reff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         String testString = "String Fragment";
-
-        Toast.makeText(MainActivity.this, "Fire base is connect", Toast.LENGTH_LONG).show();
+//        reff = FirebaseDatabase.getInstance().getReference().child("Plant").child("1");
+//        reff.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                String test = dataSnapshot.child("name").getValue().toString();
+//
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//                Toast.makeText(MainActivity.this, "wrong", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//        Toast.makeText(MainActivity.this, " Fire base is connect", Toast.LENGTH_LONG).show();
 
         folder = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), filename);
         folderPath = folder.getPath();

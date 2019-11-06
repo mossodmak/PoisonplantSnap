@@ -6,88 +6,178 @@
     android:layout_height="wrap_content"
     android:background="@drawable/background2">
 
+    <LinearLayout
+        android:id="@+id/search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/search_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="Search Fragment"
+            android:clickable="true"
+            android:textSize="30sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/search_text"
+            android:textColorHint="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/search_title"
+            android:layout_alignParentBottom="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search"
+                android:layout_marginHorizontal="40dp"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_layout">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/search_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:textColor="@android:color/white"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:text="Search Fragment"
-                android:clickable="true"
-                android:textSize="30sp" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/search_text"
-                android:textColorHint="@android:color/white"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/search_title"
-                android:layout_alignParentBottom="false">
-
-                <com.google.android.material.textfield.TextInputEditText
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btnView1"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/sunflower"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14dp" />
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Search"
-                    android:layout_marginHorizontal="40dp"
-                    android:inputType="text" />
+                    android:layout_height="match_parent"
+                    android:textColor="@android:color/white"
+                    android:text="     "
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="16dp"
+                    android:textSize="25dp"
+                    />
+            </LinearLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <ImageView
-                android:id="@+id/imageView1"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnView2"
                 android:layout_width="130dp"
                 android:layout_height="130dp"
-                android:layout_below="@id/search_text"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/jasmine"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/ic_camera_alt_black_24dp" />
+                android:textSize="14dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/white"
+                android:text="     "
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="16dp"
+                android:textSize="25dp"
+                />
+        </LinearLayout>
 
-            <ImageView
-                android:id="@+id/imageView2"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnView3"
                 android:layout_width="130dp"
                 android:layout_height="130dp"
-                android:layout_below="@id/imageView1"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/tulip"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/ic_camera_alt_black_24dp" />
+                android:textSize="14dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/white"
+                android:text="     "
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="16dp"
+                android:textSize="25dp"
+                />
+        </LinearLayout>
 
-            <ImageView
-                android:id="@+id/imageView3"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnView4"
                 android:layout_width="130dp"
                 android:layout_height="130dp"
-                android:layout_below="@id/imageView2"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/gaprao"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/ic_camera_alt_black_24dp" />
+                android:textSize="14dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/white"
+                android:text="     "
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="16dp"
+                android:textSize="25dp"
+                />
+        </LinearLayout>
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_below="@id/imageView3"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/ic_camera_alt_black_24dp" />
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView2"-->
+<!--                android:layout_width="130dp"-->
+<!--                android:layout_height="130dp"-->
+<!--                android:layout_below="@id/imageView1"-->
+<!--                android:layout_marginStart="30dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:src="@drawable/ic_camera_alt_black_24dp" />-->
 
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_below="@id/imageView4"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/ic_camera_alt_black_24dp" />
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView3"-->
+<!--                android:layout_width="130dp"-->
+<!--                android:layout_height="130dp"-->
+<!--                android:layout_below="@id/imageView2"-->
+<!--                android:layout_marginStart="30dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:src="@drawable/ic_camera_alt_black_24dp" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView4"-->
+<!--                android:layout_width="130dp"-->
+<!--                android:layout_height="130dp"-->
+<!--                android:layout_below="@id/imageView3"-->
+<!--                android:layout_marginStart="30dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:src="@drawable/ic_camera_alt_black_24dp" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView5"-->
+<!--                android:layout_width="130dp"-->
+<!--                android:layout_height="130dp"-->
+<!--                android:layout_below="@id/imageView4"-->
+<!--                android:layout_marginStart="30dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:src="@drawable/ic_camera_alt_black_24dp" />-->
 
         </LinearLayout>
 

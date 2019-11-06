@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/weed_background">
+    android:background="@drawable/background2">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -31,13 +31,13 @@
                 android:layout_height="130dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="50dp">
 
                 <Button
                     android:layout_width="130dp"
                     android:layout_height="130dp"
                     android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/gallery_folder"
+                    android:background="@drawable/sunflower"
                     android:text=" Sunflower"
                     android:textSize="14dp"
                     android:textColor="@android:color/white"
@@ -49,8 +49,8 @@
                     android:layout_width="130dp"
                     android:layout_height="130dp"
                     android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/gallery_folder"
-                    android:text=" Mossodmak"
+                    android:background="@drawable/jasmine"
+                    android:text=" Jasmine"
                     android:textSize="14dp"
                     android:textColor="@android:color/white"
                     android:textAlignment="gravity"
@@ -70,8 +70,8 @@
                     android:layout_width="130dp"
                     android:layout_height="130dp"
                     android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/gallery_folder"
-                    android:text=" Pongngai"
+                    android:background="@drawable/tulip"
+                    android:text=" Tulip"
                     android:textSize="14dp"
                     android:textColor="@android:color/white"
                     android:textAlignment="gravity"
@@ -82,8 +82,8 @@
                     android:layout_width="130dp"
                     android:layout_height="130dp"
                     android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/gallery_folder"
-                    android:text=" Peepmax"
+                    android:background="@drawable/gaprao"
+                    android:text=" Gaprao"
                     android:textSize="14dp"
                     android:textColor="@android:color/white"
                     android:textAlignment="gravity"
@@ -92,50 +92,50 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <Button
-                android:id="@+id/galleryButton1"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/gallery_folder"
-                android:gravity="start"
-                android:text=" Mossodmak"
-                android:textAlignment="gravity"
-                android:textAppearance="@style/Theme.AppCompat.DayNight.NoActionBar"
-                android:textColor="@android:color/white"
-                android:textSize="12dp" />
+<!--            <Button-->
+<!--                android:id="@+id/galleryButton1"-->
+<!--                android:layout_width="130dp"-->
+<!--                android:layout_height="130dp"-->
+<!--                android:layout_marginStart="30dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="@drawable/gallery_folder"-->
+<!--                android:gravity="start"-->
+<!--                android:text=" Mossodmak"-->
+<!--                android:textAlignment="gravity"-->
+<!--                android:textAppearance="@style/Theme.AppCompat.DayNight.NoActionBar"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textSize="12dp" />-->
 
-            <Button
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/gallery_folder" />
+<!--            <Button-->
+<!--                android:layout_width="130dp"-->
+<!--                android:layout_height="130dp"-->
+<!--                android:layout_marginStart="30dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="@drawable/gallery_folder" />-->
 
-            <Button
-                android:id="@+id/galleryButton2"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/gallery_folder" />
+<!--            <Button-->
+<!--                android:id="@+id/galleryButton2"-->
+<!--                android:layout_width="130dp"-->
+<!--                android:layout_height="130dp"-->
+<!--                android:layout_marginStart="30dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="@drawable/gallery_folder" />-->
 
-            <Button
-                android:id="@+id/galleryButton3"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/gallery_folder" />
+<!--            <Button-->
+<!--                android:id="@+id/galleryButton3"-->
+<!--                android:layout_width="130dp"-->
+<!--                android:layout_height="130dp"-->
+<!--                android:layout_marginStart="30dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="@drawable/gallery_folder" />-->
 
-            <Button
-                android:id="@+id/galleryButton4"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/gallery_folder" />
+<!--            <Button-->
+<!--                android:id="@+id/galleryButton4"-->
+<!--                android:layout_width="130dp"-->
+<!--                android:layout_height="130dp"-->
+<!--                android:layout_marginStart="30dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="@drawable/gallery_folder" />-->
 
         </LinearLayout>
 
