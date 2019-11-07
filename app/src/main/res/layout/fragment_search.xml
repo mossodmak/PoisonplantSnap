@@ -24,124 +24,21 @@
             android:clickable="true"
             android:textSize="30sp" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/search_text"
-            android:textColorHint="@android:color/white"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/search_title"
-            android:layout_alignParentBottom="false">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Search"
-                android:layout_marginHorizontal="40dp"
-                android:inputType="text" />
-
-        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_below="@+id/search_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/search_layout">
+        android:layout_height="match_parent"
+        android:padding="4dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <Button
-                    android:id="@+id/btnView1"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/sunflower"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="10dp"
-                    android:textSize="14dp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textColor="@android:color/white"
-                    android:text="     "
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="16dp"
-                    android:textSize="25dp"
-                    />
-            </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/btnView2"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/jasmine"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:textSize="14dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@android:color/white"
-                android:text="     "
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="16dp"
-                android:textSize="25dp"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/btnView3"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/tulip"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:textSize="14dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@android:color/white"
-                android:text="     "
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="16dp"
-                android:textSize="25dp"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/btnView4"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/gaprao"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:textSize="14dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@android:color/white"
-                android:text="     "
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="16dp"
-                android:textSize="25dp"
-                />
-        </LinearLayout>
 
 <!--            <ImageView-->
 <!--                android:id="@+id/imageView2"-->
@@ -178,10 +75,6 @@
 <!--                android:layout_marginStart="30dp"-->
 <!--                android:layout_marginTop="10dp"-->
 <!--                android:src="@drawable/ic_camera_alt_black_24dp" />-->
-
-        </LinearLayout>
-
-    </ScrollView>
 
 
 </RelativeLayout>
