@@ -58,11 +58,7 @@ public class ShowResult extends AppCompatActivity {
         setContentView(R.layout.show_result);
         unknown = findViewById(R.id.show_result_textResult);
         imageView1=findViewById(R.id.show_result_imv1);
-        imageView2=findViewById(R.id.show_result_imv2);
-        imageView3=findViewById(R.id.show_result_imv3);
         button_result1 = findViewById(R.id.show_result_btn1);
-        button_result2 = findViewById(R.id.show_result_btn2);
-        button_result3 = findViewById(R.id.show_result_btn3);
         imageResult = findViewById(R.id.show_result_imageResult);
         imageResult.setImageBitmap(bitmap);
         getResultByTF(bitmap);
@@ -103,8 +99,7 @@ public class ShowResult extends AppCompatActivity {
             final List<Classifier.Recognition> resultsCamera = classifier.recognizeImage(imageBitmapCamera);
 
                     button_result1.setText(resultsCamera.get(0).toString());
-                    button_result2.setText(resultsCamera.get(1).toString());
-                    button_result3.setText(resultsCamera.get(2).toString());
+
                     /*if(getInt(resultsCamera.get(0).toString())<50){
                         unknown.setText("Unknown");
                     }*/
@@ -185,37 +180,18 @@ public class ShowResult extends AppCompatActivity {
     }
     private void getImagebyResult(){
         pic1 = cutWongLeb(button_result1.getText().toString());
-        pic2 = cutWongLeb(button_result2.getText().toString());
-        pic3 = cutWongLeb(button_result3.getText().toString());
-        if(pic1.equals("เทียนหยด")&&pic2.equals("ลำโพงขาว")&&pic3.equals("หงอนไก่")){
+
+        if(pic1.equals("เทียนหยด")){
             Glide.with(ShowResult.this).load(a).into(imageView1);
-            Glide.with(ShowResult.this).load(b).into(imageView2);
-            Glide.with(ShowResult.this).load(c).into(imageView3);
+
         }
-        if(pic1.equals("เทียนหยด")&&pic2.equals("หงอนไก่")&&pic3.equals("ลำโพงขาว")){
-            Glide.with(ShowResult.this).load(a).into(imageView1);
-            Glide.with(ShowResult.this).load(c).into(imageView2);
-            Glide.with(ShowResult.this).load(b).into(imageView3);
-        }
-        if(pic1.equals("ลำโพงขาว")&&pic2.equals("เทียนหยด")&&pic3.equals("หงอนไก่")){
+        else if(pic1.equals("ลำโพงขาว")){
             Glide.with(ShowResult.this).load(b).into(imageView1);
-            Glide.with(ShowResult.this).load(a).into(imageView2);
-            Glide.with(ShowResult.this).load(c).into(imageView3);
+
         }
-        if(pic1.equals("ลำโพงขาว")&&pic2.equals("หงอนไก่")&&pic3.equals("เทียนหยด")){
-            Glide.with(ShowResult.this).load(b).into(imageView1);
-            Glide.with(ShowResult.this).load(c).into(imageView2);
-            Glide.with(ShowResult.this).load(a).into(imageView3);
-        }
-        if(pic1.equals("หงอนไก่")&&pic2.equals("เทียนหยด")&&pic3.equals("ลำโพงขาว")){
+        else if(pic1.equals("หงอนไก่")){
             Glide.with(ShowResult.this).load(c).into(imageView1);
-            Glide.with(ShowResult.this).load(a).into(imageView2);
-            Glide.with(ShowResult.this).load(b).into(imageView3);
-        }
-        if(pic1.equals("หงอนไก่")&&pic2.equals("ลำโพงขาว")&&pic3.equals("เทียนหยด")){
-            Glide.with(ShowResult.this).load(c).into(imageView1);
-            Glide.with(ShowResult.this).load(b).into(imageView2);
-            Glide.with(ShowResult.this).load(a).into(imageView3);
+
         }
     }
 }

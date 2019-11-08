@@ -31,8 +31,6 @@ public class ResultFragment extends Fragment {
     private Handler handler = new Handler();
     private Executor executor = Executors.newSingleThreadExecutor();
     private Button button_result1;
-    private Button button_result2;
-    private Button button_result3;
     private Classifier classifier;
     private Bitmap bitmap;
 
@@ -49,8 +47,6 @@ public class ResultFragment extends Fragment {
 
         Bitmap bitmap = (Bitmap) this.getActivity().getIntent().getParcelableExtra("photo");
         button_result1 = getActivity().findViewById(R.id.button_result1);
-        button_result2 = getActivity().findViewById(R.id.button_result2);
-        button_result3 = getActivity().findViewById(R.id.button_result3);
         imageResult = getActivity().findViewById(R.id.imageResult);
         imageResult.setImageBitmap(bitmap);
         getResultByTF(bitmap);
@@ -64,8 +60,6 @@ public class ResultFragment extends Fragment {
         if (classifier != null) {
             final List<Classifier.Recognition> resultsCamera = classifier.recognizeImage(imageBitmapCamera);
             button_result1.setText(resultsCamera.get(0).toString());
-            button_result2.setText(resultsCamera.get(1).toString());
-            button_result3.setText(resultsCamera.get(2).toString());
 
 
             executor.execute(new Runnable() {

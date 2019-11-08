@@ -4,15 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/background2">
+    android:background="@color/cardview_light_background">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/gallery_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -22,124 +20,27 @@
                 android:layout_alignParentTop="true"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:text="Gallery Fragment"
-                android:textColor="@android:color/white"
-                android:textSize="30sp" />
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:layout_marginTop="50dp">
-
-                <Button
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/sunflower"
-                    android:text=" Sunflower"
-                    android:textSize="14dp"
-                    android:textColor="@android:color/white"
-                    android:textAlignment="gravity"
-                    android:textAppearance="@style/Theme.AppCompat.DayNight.NoActionBar"
-                    android:gravity="start" />
-
-                <Button
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/jasmine"
-                    android:text=" Jasmine"
-                    android:textSize="14dp"
-                    android:textColor="@android:color/white"
-                    android:textAlignment="gravity"
-                    android:textAppearance="@style/Theme.AppCompat.DayNight.NoActionBar"
-                    android:gravity="start" />
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp">
-
-                <Button
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/tulip"
-                    android:text=" Tulip"
-                    android:textSize="14dp"
-                    android:textColor="@android:color/white"
-                    android:textAlignment="gravity"
-                    android:textAppearance="@style/Theme.AppCompat.DayNight.NoActionBar"
-                    android:gravity="start" />
-
-                <Button
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/gaprao"
-                    android:text=" Gaprao"
-                    android:textSize="14dp"
-                    android:textColor="@android:color/white"
-                    android:textAlignment="gravity"
-                    android:textAppearance="@style/Theme.AppCompat.DayNight.NoActionBar"
-                    android:gravity="start" />
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-<!--            <Button-->
-<!--                android:id="@+id/galleryButton1"-->
-<!--                android:layout_width="130dp"-->
-<!--                android:layout_height="130dp"-->
-<!--                android:layout_marginStart="30dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/gallery_folder"-->
-<!--                android:gravity="start"-->
-<!--                android:text=" Mossodmak"-->
-<!--                android:textAlignment="gravity"-->
-<!--                android:textAppearance="@style/Theme.AppCompat.DayNight.NoActionBar"-->
-<!--                android:textColor="@android:color/white"-->
-<!--                android:textSize="12dp" />-->
-
-<!--            <Button-->
-<!--                android:layout_width="130dp"-->
-<!--                android:layout_height="130dp"-->
-<!--                android:layout_marginStart="30dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/gallery_folder" />-->
-
-<!--            <Button-->
-<!--                android:id="@+id/galleryButton2"-->
-<!--                android:layout_width="130dp"-->
-<!--                android:layout_height="130dp"-->
-<!--                android:layout_marginStart="30dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/gallery_folder" />-->
-
-<!--            <Button-->
-<!--                android:id="@+id/galleryButton3"-->
-<!--                android:layout_width="130dp"-->
-<!--                android:layout_height="130dp"-->
-<!--                android:layout_marginStart="30dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/gallery_folder" />-->
-
-<!--            <Button-->
-<!--                android:id="@+id/galleryButton4"-->
-<!--                android:layout_width="130dp"-->
-<!--                android:layout_height="130dp"-->
-<!--                android:layout_marginStart="30dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/gallery_folder" />-->
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:text="My Collection"
+                android:textColor="@android:color/black"
+                android:textSize="26sp" />
 
         </LinearLayout>
 
-    </ScrollView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="365dp"
+        android:layout_height="671dp"
+        android:layout_below="@+id/gallery_layout"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-2dp"
+        android:layout_marginEnd="20dp"
+        android:padding="4dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </RelativeLayout>
