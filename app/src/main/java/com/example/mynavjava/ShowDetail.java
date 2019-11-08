@@ -30,10 +30,10 @@ public class ShowDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_detail);
 
-        /*ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Post detail");
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);*/
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setTitle("Information");
+//        actionBar.setDisplayHomeAsUpEnabled(true);
+//        actionBar.setDisplayShowHomeEnabled(true);
 
         title = findViewById(R.id.rTitleTv1);
         imageView = findViewById(R.id.imageView1);

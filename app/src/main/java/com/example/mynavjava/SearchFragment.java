@@ -53,8 +53,8 @@ public class SearchFragment extends Fragment {
                 transaction.commit();
             }
         });
-        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
-        //actionBar.setTitle("Search");
+//        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+//        actionBar.setTitle("Search");
 
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);

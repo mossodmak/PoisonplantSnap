@@ -8,4 +8,6 @@
     <color name="background">#ccffcc</color>
     <color name="shadow_btn">#999999</color>
     <color name="common_btn">#c0c0c0</color>
+    <color name="light_green">#86f974</color>
+    <color name="white">#ffffff</color>
 </resources>

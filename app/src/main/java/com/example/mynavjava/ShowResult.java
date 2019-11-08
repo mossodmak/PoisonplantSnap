@@ -64,11 +64,9 @@ public class ShowResult extends AppCompatActivity {
         setContentView(R.layout.show_result);
         unknown = findViewById(R.id.show_result_textResult);
         imageView1=findViewById(R.id.show_result_imv1);
-        imageView2=findViewById(R.id.show_result_imv2);
-        imageView3=findViewById(R.id.show_result_imv3);
         button_result1 = findViewById(R.id.show_result_btn1);
-        button_result2 = findViewById(R.id.show_result_btn2);
-        button_result3 = findViewById(R.id.show_result_btn3);
+//        button_result2 = findViewById(R.id.show_result_btn2);
+//        button_result3 = findViewById(R.id.show_result_btn3);
 
         btn_save = findViewById(R.id.show_result_btn_save);
         btn_discard = findViewById(R.id.show_result_btn_discard);
@@ -116,8 +114,7 @@ public class ShowResult extends AppCompatActivity {
             final List<Classifier.Recognition> resultsCamera = classifier.recognizeImage(imageBitmapCamera);
 
                     button_result1.setText(resultsCamera.get(0).toString());
-                    button_result2.setText(resultsCamera.get(1).toString());
-                    button_result3.setText(resultsCamera.get(2).toString());
+
                     /*if(getInt(resultsCamera.get(0).toString())<50){
                         unknown.setText("Unknown");
                     }*/
