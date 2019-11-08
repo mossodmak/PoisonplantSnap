@@ -43,6 +43,8 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.firebaseui:firebase-ui-database:0.4.0'
+    //firebase storage
+    implementation 'com.google.firebase:firebase-storage:9.2.1'
     //dependencie crop
     implementation 'com.soundcloud.android:android-crop:1.0.1@aar'
 

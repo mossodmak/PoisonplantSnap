@@ -14,7 +14,7 @@ public class IdentifyType extends AppCompatActivity {
 
     private Button btn_leaf;
     private Button btn_flower;
-    private String modelName[] = {"model3_leaf_quant_false.tflite", "model3_flower_quant_false.tflite"};
+    private String modelName[] = {"model4_leaf_quant_False.tflite", "model4_flower_quant_False.tflite"};
     private Bitmap bitmap;
     private ImageView imageView;
 

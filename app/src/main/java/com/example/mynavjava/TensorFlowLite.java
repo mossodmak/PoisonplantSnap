@@ -29,7 +29,7 @@ public class TensorFlowLite implements Classifier {
     private boolean quant;
     private static final float IMAGE_MEAN = 127.5f;
     private static final float IMAGE_STD = 127.5f;
-    private static final float THRESHOLD = 0.5f;
+    private static final float THRESHOLD = 0.4f;
 
     static Classifier create(AssetManager assetManager,
                              String modelPath,
