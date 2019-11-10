@@ -3,14 +3,16 @@
     android:id="@+id/identify_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background" >
+    android:background="@drawable/projectbg" >
     <TextView
         android:id="@+id/identified_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
+        android:textSize="26dp"
+        android:textColor="@android:color/black"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
+        android:fontFamily="@font/roboto_condensed_regular"
         android:text="Choose related organ" />
 
     <ImageView

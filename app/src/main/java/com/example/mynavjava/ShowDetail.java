@@ -42,24 +42,23 @@ public class ShowDetail extends AppCompatActivity {
         String mtitle = getIntent().getStringExtra("title");
         //String desc = getIntent().getStringExtra("description");
         //Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
-//        firebaseDatabase = FirebaseDatabase.getInstance();
-//        reference = firebaseDatabase.getReference().child("detail").child(mtitle);
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                String name = dataSnapshot.child("name").getValue().toString();
-//                String surname = dataSnapshot.child("surname").getValue().toString();
-//                title.setText(name);
-//                detail.setText(surname);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        reference = firebaseDatabase.getReference().child("plant").child(mtitle);
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String name = dataSnapshot.child("name").getValue().toString();
+                title.setText(name);
 
-        title.setText(mtitle);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        //title.setText(mtitle);
         //detail.setText(desc);
         //imageView.setImageBitmap(bitmap);
         Picasso.get().load(images).into(imageView);

@@ -195,84 +195,21 @@ public class ShowResult extends AppCompatActivity {
     }
     private void getImagebyResult(){
         pic1 = cutWongLeb(button_result1.getText().toString());
-        pic2 = cutWongLeb(button_result2.getText().toString());
-        pic3 = cutWongLeb(button_result3.getText().toString());
-        if(pic1.equals("เทียนหยด")&&pic2.equals("ลำโพงขาว")&&pic3.equals("หงอนไก่")){
-            arrange(a,b,c);
+        if(pic1.equals("เทียนหยด")){
+            arrange(a);
         }
-        else if(pic1.equals("เทียนหยด")&&pic2.equals("หงอนไก่")&&pic3.equals("ลำโพงขาว")){
-            arrange(a,c,b);
+        if(pic1.equals("ลำโพงขาว")) {
+            arrange(b);
         }
-        if(pic1.equals("เทียนหยด")&&pic2.equals("สกุลเอื้อง")&&pic3.equals("หงอนไก่")){
-            arrange(a,d,c);
+
+        if(pic1.equals("หงอนไก่")){
+            arrange(c);
         }
-        if(pic1.equals("เทียนหยด")&&pic2.equals("หงอนไก่")&&pic3.equals("สกุลเอื้อง")){
-            arrange(a,c,d);
-        }
-        if(pic1.equals("เทียนหยด")&&pic2.equals("สกุลเอื้อง")&&pic3.equals("ลำโพงขาว")){
-            arrange(a,d,b);
-        }
-        if(pic1.equals("เทียนหยด")&&pic2.equals("ลำโพงขาว")&&pic3.equals("สกุลเอื้อง")){
-            arrange(a,b,d);
-        }
-        if(pic1.equals("ลำโพงขาว")&&pic2.equals("เทียนหยด")&&pic3.equals("หงอนไก่")){
-            arrange(b,a,c);
-        }
-        if(pic1.equals("ลำโพงขาว")&&pic2.equals("หงอนไก่")&&pic3.equals("เทียนหยด")){
-            arrange(b,c,a);
-        }
-        if(pic1.equals("ลำโพงขาว")&&pic2.equals("เทียนหยด")&&pic3.equals("สกุลเอื้อง")){
-            arrange(b,a,d);
-        }
-        if(pic1.equals("ลำโพงขาว")&&pic2.equals("สกุลเอื้อง")&&pic3.equals("เทียนหยด")){
-            arrange(b,d,a);
-        }
-        if(pic1.equals("ลำโพงขาว")&&pic2.equals("สกุลเอื้อง")&&pic3.equals("หงอนไก่")){
-            arrange(b,d,c);
-        }
-        if(pic1.equals("ลำโพงขาว")&&pic2.equals("หงอนไก่")&&pic3.equals("สกุลเอื้อง")){
-            arrange(b,c,d);
-        }
-        if(pic1.equals("หงอนไก่")&&pic2.equals("เทียนหยด")&&pic3.equals("ลำโพงขาว")){
-            arrange(c,a,b);
-        }
-        if(pic1.equals("หงอนไก่")&&pic2.equals("ลำโพงขาว")&&pic3.equals("เทียนหยด")){
-            arrange(c,b,a);
-        }
-        if(pic1.equals("หงอนไก่")&&pic2.equals("เทียนหยด")&&pic3.equals("สกุลเอื้อง")){
-            arrange(c,a,d);
-        }
-        if(pic1.equals("หงอนไก่")&&pic2.equals("สกุลเอื้อง")&&pic3.equals("เทียนหยด")){
-            arrange(c,d,a);
-        }
-        if(pic1.equals("หงอนไก่")&&pic2.equals("สกุลเอื้อง")&&pic3.equals("ลำโพงขาว")){
-            arrange(c,d,b);
-        }
-        if(pic1.equals("หงอนไก่")&&pic2.equals("ลำโพงขาว")&&pic3.equals("สกุลเอื้อง")){
-            arrange(c,b,d);
-        }
-        if(pic1.equals("สกุลเอื้อง")&&pic2.equals("เทียนหยด")&&pic3.equals("ลำโพงขาว")){
-            arrange(d,a,b);
-        }
-        if(pic1.equals("สกุลเอื้อง")&&pic2.equals("ลำโพงขาว")&&pic3.equals("เทียนหยด")){
-            arrange(d,b,a);
-        }
-        if(pic1.equals("สกุลเอื้อง")&&pic2.equals("เทียนหยด")&&pic3.equals("หงอนไก่")){
-            arrange(d,a,c);
-        }
-        if(pic1.equals("สกุลเอื้อง")&&pic2.equals("หงอนไก่")&&pic3.equals("เทียนหยด")){
-            arrange(d,c,a);
-        }
-        if(pic1.equals("สกุลเอื้อง")&&pic2.equals("หงอนไก่")&&pic3.equals("ลำโพงขาว")){
-            arrange(d,c,b);
-        }
-        if(pic1.equals("สกุลเอื้อง")&&pic2.equals("ลำโพงขาว")&&pic3.equals("หงอนไก่")){
-            arrange(d,b,c);
+        if(pic1.equals("สกุลเอื้อง")){
+            arrange(d);
         }
     }
-    private void arrange(String a, String b, String c) {
+    private void arrange(String a) {
         Glide.with(ShowResult.this).load(a).into(imageView1);
-        Glide.with(ShowResult.this).load(b).into(imageView2);
-        Glide.with(ShowResult.this).load(c).into(imageView3);
     }
 }

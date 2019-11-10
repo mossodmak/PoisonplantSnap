@@ -5,7 +5,7 @@
     android:id="@+id/show_result_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@drawable/projectbg">
 
     <TextView
         android:id="@+id/show_result_title"
@@ -14,8 +14,10 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="Result Fragment"
-        android:textSize="30sp" />
+        android:textColor="@android:color/black"
+        android:text="Result"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:textSize="26sp"/>
 
     <ImageView
         android:id="@+id/show_result_imageResult"
@@ -39,6 +41,7 @@
         android:id="@+id/show_result_textResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/show_result_imageResult"
         android:text="Mossodmak"
