@@ -1,7 +1,9 @@
 package com.example.mynavjava;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -12,16 +14,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -37,8 +48,6 @@ public class ShowResult extends AppCompatActivity {
     private Button button_result1;
     private Button button_result2;
     private Button button_result3;
-    //For save picture to Storage
-    private Uri filepath;
     private Button btn_save;
     private Button btn_discard;
     private ImageView imageView1;
@@ -54,6 +63,13 @@ public class ShowResult extends AppCompatActivity {
     private String a = "https://firebasestorage.googleapis.com/v0/b/mynavjava.appspot.com/o/%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%AB%E0%B8%A2%E0%B8%94.jpg?alt=media&token=cd85118d-f3e1-4a63-9f46-53730c5fd8b2";
     private String c = "https://firebasestorage.googleapis.com/v0/b/mynavjava.appspot.com/o/%E0%B8%AB%E0%B8%87%E0%B8%AD%E0%B8%99%E0%B9%84%E0%B8%81%E0%B9%88.jpg?alt=media&token=5454de0c-29ea-499c-b55b-52bc6eaef40a";
     private String d = "https://firebasestorage.googleapis.com/v0/b/mynavjava.appspot.com/o/sakul.jfif?alt=media&token=19cae5a2-ef88-434b-82a0-83e2bf4845db";
+
+    //For save picture to Storage
+    private Uri filePath;
+    private FirebaseStorage firebaseStorage;
+    private StorageReference storageReference;
+    private StorageReference photoRef;
+    private String photo_url;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,8 +83,6 @@ public class ShowResult extends AppCompatActivity {
         unknown = findViewById(R.id.show_result_textResult);
         imageView1=findViewById(R.id.show_result_imv1);
         button_result1 = findViewById(R.id.show_result_btn1);
-//        button_result2 = findViewById(R.id.show_result_btn2);
-//        button_result3 = findViewById(R.id.show_result_btn3);
 
         btn_save = findViewById(R.id.show_result_btn_save);
         btn_discard = findViewById(R.id.show_result_btn_discard);
@@ -80,9 +94,19 @@ public class ShowResult extends AppCompatActivity {
         checkUnknown();
 
         //Upload to FireStorage
-        //btn_save.
-        check = cutWongLeb(button_result1.getText().toString());
+        firebaseStorage = FirebaseStorage.getInstance();
+        storageReference = firebaseStorage.getReference();
+        photoRef = storageReference.child("photos/"+ UUID.randomUUID().toString());
+        photo_url = photoRef.toString();
+        btn_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadImage();
+            }
+        });
+        //Bug: btn_save never show on ShowResult at running application
 
+        check = cutWongLeb(button_result1.getText().toString());
         button_result1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,6 +150,30 @@ public class ShowResult extends AppCompatActivity {
 //
 //            }
 //        });
+    }
+    private void uploadImage(){
+        //Save from data in memory method
+        imageResult.setDrawingCacheEnabled(true);
+        imageResult.buildDrawingCache();
+        Bitmap bitmap2 = ((BitmapDrawable) imageResult.getDrawable()).getBitmap();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] data = baos.toByteArray();
+
+        UploadTask uploadTask = photoRef.putBytes(data);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                Toast.makeText(ShowResult.this, "Failed", Toast.LENGTH_SHORT);
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(ShowResult.this, "Uploaded", Toast.LENGTH_SHORT);
+                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                // ...
+            }
+        });
     }
     private void getResultByTF(Bitmap imageBitmapCamera) {
 
