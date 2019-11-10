@@ -16,8 +16,7 @@
         android:layout_marginTop="30dp"
         android:textColor="@android:color/black"
         android:text="Result"
-        android:fontFamily="@font/roboto_condensed_regular"
-        android:textSize="26sp"/>
+        android:textSize="30sp" />
 
     <ImageView
         android:id="@+id/show_result_imageResult"
@@ -41,8 +40,8 @@
         android:id="@+id/show_result_textResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
         android:layout_centerHorizontal="true"
+        android:textColor="@android:color/black"
         android:layout_below="@+id/show_result_imageResult"
         android:text="Mossodmak"
         android:textSize="24dp"
@@ -50,15 +49,16 @@
 
     <LinearLayout
         android:id="@+id/show_result_layout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="306dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/show_result_textResult"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
+        android:background="@color/white"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:orientation="horizontal"
-        android:layout_below="@+id/show_result_textResult"
-        android:layout_centerHorizontal="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,15 +67,19 @@
 
         <ImageView
             android:id="@+id/show_result_imv1"
-            android:layout_width="43dp"
-            android:layout_height="70dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
             tools:srcCompat="@tools:sample/avatars[0]" />
 
         <Button
             android:id="@+id/show_result_btn1"
-            android:layout_width="179dp"
-            android:layout_height="70dp"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_gravity="center_vertical"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Button" />
 
