@@ -9,7 +9,7 @@
     <item
         android:id="@+id/nav_gallery"
         android:icon="@drawable/ic_folder_black_24dp"
-        android:title="Gallery" />
+        android:title="Feeds" />
 
     <item
         android:id="@+id/nav_camera"

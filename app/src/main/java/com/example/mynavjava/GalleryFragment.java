@@ -30,19 +30,14 @@ public class GalleryFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_gallery, container, false);
-//        Button galleryButton = view.findViewById(R.id.galleryButton1);
-//        galleryButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(GalleryFragment.this.getContext(),"Click", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         firebaseDatabase = FirebaseDatabase.getInstance();
+        //connect firebase table
         reference = firebaseDatabase.getReference().child("data");
 
         return view;
@@ -59,6 +54,7 @@ public class GalleryFragment extends Fragment {
                 ) {
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
+
                         viewHolder.setGalleryDetails(getContext(),model.getTitle(),model.getImage());
 
                     }
