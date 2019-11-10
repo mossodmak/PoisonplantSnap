@@ -11,26 +11,91 @@
     app:contentPadding="5dp"
     app:cardUseCompatPadding="true"
     tools:context=".ShowDetail">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <TextView
-            android:id="@+id/rTitleTv1"
-            android:text="Title"
-            android:textColor="#000"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></TextView>
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
+            android:padding="6dp"
             android:adjustViewBounds="true"
             android:background="@drawable/loading"></ImageView>
+        <TextView
+            android:id="@+id/Title"
+            android:padding="6dp"
+            android:text="ชื่อ:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="22sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:id="@+id/rTitleTv1"
+            android:padding="6dp"
+            android:text="Title"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:id="@+id/partTitle"
+            android:padding="6dp"
+            android:text="ส่วนที่มีพิษ:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="22sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:id="@+id/poisonpart"
+            android:padding="6dp"
+            android:text="poisonpart"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:id="@+id/symptonTitle"
+            android:padding="6dp"
+            android:text="อาการของพิษ:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="22sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:id="@+id/sympton"
+            android:padding="6dp"
+            android:text="poisonpart"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:id="@+id/recoverTitle"
+            android:padding="6dp"
+            android:text="วิธีรักษา:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="22sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:id="@+id/recover"
+            android:padding="6dp"
+            android:text="poisonpart"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
+
+
     </LinearLayout>
+    </ScrollView>
 
 </androidx.cardview.widget.CardView>

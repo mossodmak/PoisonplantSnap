@@ -42,17 +42,17 @@ public class SearchFragment extends Fragment {
         TextView search = view.findViewById(R.id.search_title);
 
         // Change Fragment by Fragment
-        final ResultFragment result = new ResultFragment();
-        final FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                transaction.replace(R.id.fragment_container, result);
-                transaction.commit();
-            }
-        });
+//        final ResultFragment result = new ResultFragment();
+//        final FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+//
+//        search.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                transaction.replace(R.id.fragment_container, result);
+//                transaction.commit();
+//            }
+//        });
 //        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
 //        actionBar.setTitle("Search");
 

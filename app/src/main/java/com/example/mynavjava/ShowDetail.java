@@ -19,7 +19,7 @@ import com.squareup.picasso.Picasso;
 
 public class ShowDetail extends AppCompatActivity {
 
-    TextView title, detail;
+    TextView title, poisonpart,sympton,recover;
     ImageView imageView;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
@@ -36,7 +36,10 @@ public class ShowDetail extends AppCompatActivity {
 //        actionBar.setDisplayShowHomeEnabled(true);
 
         title = findViewById(R.id.rTitleTv1);
+        poisonpart = findViewById(R.id.poisonpart);
         imageView = findViewById(R.id.imageView1);
+        sympton = findViewById(R.id.sympton);
+        recover = findViewById(R.id.recover);
 
         String images = getIntent().getStringExtra("image");
         String mtitle = getIntent().getStringExtra("title");
@@ -48,7 +51,14 @@ public class ShowDetail extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String name = dataSnapshot.child("name").getValue().toString();
+                String poisonparts = dataSnapshot.child("poisonpart").getValue().toString();
+                String symptons = dataSnapshot.child("sympton").getValue().toString();
+                String recovers = dataSnapshot.child("recover").getValue().toString();
+
                 title.setText(name);
+                poisonpart.setText(poisonparts);
+                sympton.setText(symptons);
+                recover.setText(recovers);
 
             }
 

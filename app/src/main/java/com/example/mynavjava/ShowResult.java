@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,6 +48,7 @@ public class ShowResult extends AppCompatActivity {
     private String currentPhotoPath;
     private String pic1,pic2,pic3;
     private String modelName;
+    private String check;
     private TextView unknown;
     private String b = "https://firebasestorage.googleapis.com/v0/b/mynavjava.appspot.com/o/%E0%B8%A5%E0%B8%B3%E0%B9%82%E0%B8%9E%E0%B8%87%E0%B8%94%E0%B8%AD%E0%B8%81%E0%B8%82%E0%B8%B2%E0%B8%A7.jpg?alt=media&token=ab487e37-7767-46cb-9923-12e704e9e508";
     private String a = "https://firebasestorage.googleapis.com/v0/b/mynavjava.appspot.com/o/%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%AB%E0%B8%A2%E0%B8%94.jpg?alt=media&token=cd85118d-f3e1-4a63-9f46-53730c5fd8b2";
@@ -55,7 +57,7 @@ public class ShowResult extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bitmap bitmap = this.getIntent().getParcelableExtra("photo");
+        final Bitmap bitmap = this.getIntent().getParcelableExtra("photo");
         //currentPhotoPath = this.getIntent().getStringExtra("DIR_PATH");
         modelName = this.getIntent().getStringExtra("modelName");
         initTensorFlowAndLoadModel(modelName);
@@ -79,34 +81,51 @@ public class ShowResult extends AppCompatActivity {
 
         //Upload to FireStorage
         //btn_save.
+        check = cutWongLeb(button_result1.getText().toString());
 
-        /*button_result1.setOnClickListener(new View.OnClickListener() {
+        button_result1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShowResult.this,ViewInfo.class);
-                intent.putExtra("result",cutWongLeb(button_result1.getText().toString()));
+                Intent intent = new Intent(ShowResult.this,ShowDetail.class);
+                intent.putExtra("title",check);
+                if(check == "เทียนหยด") {
+                    intent.putExtra("image",a);
+                    Toast.makeText(ShowResult.this, check, Toast.LENGTH_SHORT).show();
+                }
+                if(check == "ลำโพงขาว") {
+                    intent.putExtra("image",b);
+                    Toast.makeText(ShowResult.this, check, Toast.LENGTH_SHORT).show();
+                }
+                if(check == "หงอนไก่") {
+                    intent.putExtra("image",c);
+                    Toast.makeText(ShowResult.this, check, Toast.LENGTH_SHORT).show();
+                }
+                if(check == "สกุลเอื้อง") {
+                    intent.putExtra("image",d);
+                    Toast.makeText(ShowResult.this, check, Toast.LENGTH_SHORT).show();
+                }
                 startActivity(intent);
 
             }
         });
-        button_result2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ShowResult.this,ViewInfo.class);
-                intent.putExtra("result",cutWongLeb(button_result3.getText().toString()));
-                startActivity(intent);
-
-            }
-        });
-        button_result3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ShowResult.this,ViewInfo.class);
-                intent.putExtra("result",cutWongLeb(button_result3.getText().toString()));
-                startActivity(intent);
-
-            }
-        });*/
+//        button_result2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(ShowResult.this,ViewInfo.class);
+//                intent.putExtra("result",cutWongLeb(button_result3.getText().toString()));
+//                startActivity(intent);
+//
+//            }
+//        });
+//        button_result3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(ShowResult.this,ViewInfo.class);
+//                intent.putExtra("result",cutWongLeb(button_result3.getText().toString()));
+//                startActivity(intent);
+//
+//            }
+//        });
     }
     private void getResultByTF(Bitmap imageBitmapCamera) {
 
