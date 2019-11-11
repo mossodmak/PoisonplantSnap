@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="26dp"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/grey"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/roboto_condensed_regular"
@@ -38,8 +38,8 @@
             android:layout_height="wrap_content"
             android:text="Leaf"
             android:layout_marginHorizontal="20dp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/gallery_folder"/>
+            android:textColor="@color/grey"
+            android:background="@drawable/buttonbg"/>
 
         <Button
             android:id="@+id/identified_btn_flower"
@@ -47,8 +47,8 @@
             android:layout_height="wrap_content"
             android:text="Flower"
             android:layout_marginHorizontal="20dp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/gallery_folder" />
+            android:textColor="@color/grey"
+            android:background="@drawable/buttonbg" />
 
     </LinearLayout>
 

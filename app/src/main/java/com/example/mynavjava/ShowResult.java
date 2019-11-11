@@ -21,6 +21,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -90,10 +95,12 @@ public class ShowResult extends AppCompatActivity {
         imageResult = findViewById(R.id.show_result_imageResult);
         imageResult.setImageBitmap(bitmap);
         getResultByTF(bitmap);
+        check = cutWongLeb(button_result1.getText().toString());
         getImagebyResult();
         checkUnknown();
 
         //Upload to FireStorage
+
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
         photoRef = storageReference.child("photos/"+ UUID.randomUUID().toString());
@@ -106,28 +113,11 @@ public class ShowResult extends AppCompatActivity {
         });
         //Bug: btn_save never show on ShowResult at running application
 
-        check = cutWongLeb(button_result1.getText().toString());
         button_result1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ShowResult.this,ShowDetail.class);
                 intent.putExtra("title",check);
-                if(check == "เทียนหยด") {
-                    intent.putExtra("image",a);
-                    Toast.makeText(ShowResult.this, check, Toast.LENGTH_SHORT).show();
-                }
-                if(check == "ลำโพงขาว") {
-                    intent.putExtra("image",b);
-                    Toast.makeText(ShowResult.this, check, Toast.LENGTH_SHORT).show();
-                }
-                if(check == "หงอนไก่") {
-                    intent.putExtra("image",c);
-                    Toast.makeText(ShowResult.this, check, Toast.LENGTH_SHORT).show();
-                }
-                if(check == "สกุลเอื้อง") {
-                    intent.putExtra("image",d);
-                    Toast.makeText(ShowResult.this, check, Toast.LENGTH_SHORT).show();
-                }
                 startActivity(intent);
 
             }

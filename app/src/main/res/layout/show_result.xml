@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/projectbg">
-
     <TextView
         android:id="@+id/show_result_title"
         android:layout_width="wrap_content"
@@ -14,10 +13,10 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:textColor="@android:color/black"
-        android:text="Result"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:textColor="@color/grey"
+        android:text="SNAP \u0026 DISCOVER"
         android:textSize="30sp" />
-
     <ImageView
         android:id="@+id/show_result_imageResult"
         android:layout_width="224dp"
@@ -41,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:textColor="@android:color/black"
+        android:textColor="@color/grey"
         android:layout_below="@+id/show_result_imageResult"
         android:text="Mossodmak"
         android:textSize="24dp"
@@ -56,7 +55,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp"
         android:layout_marginBottom="4dp"
-        app:cardBackgroundColor="#fff"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="3dp"
         app:cardElevation="3dp"
         app:cardUseCompatPadding="true"
@@ -73,7 +72,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:background="@color/white"
+            android:background="@color/zerowhite"
             android:orientation="horizontal">
 
             <ImageView
@@ -82,6 +81,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:background="@color/zerowhite"
                 tools:srcCompat="@tools:sample/avatars[0]" />
 
             <Button
@@ -90,8 +90,9 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:background="@color/white"
+                android:background="@color/zerowhite"
                 android:text="Button" />
+
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -123,5 +124,6 @@
             android:textSize="20dp" />
 
     </LinearLayout>
+
 
 </RelativeLayout>

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -54,11 +55,13 @@ public class ShowDetail extends AppCompatActivity {
                 String poisonparts = dataSnapshot.child("poisonpart").getValue().toString();
                 String symptons = dataSnapshot.child("sympton").getValue().toString();
                 String recovers = dataSnapshot.child("recover").getValue().toString();
+                String paths = dataSnapshot.child("path").getValue().toString();
 
                 title.setText(name);
                 poisonpart.setText(poisonparts);
                 sympton.setText(symptons);
                 recover.setText(recovers);
+                Glide.with(ShowDetail.this).load(paths).into(imageView);
 
             }
 
