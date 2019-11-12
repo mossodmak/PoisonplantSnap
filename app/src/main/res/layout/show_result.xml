@@ -14,9 +14,9 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:textColor="@android:color/black"
+        android:textColor="@color/topic"
         android:text="Result"
-        android:textSize="30sp" />
+        android:textSize="30dp" />
 
     <ImageView
         android:id="@+id/show_result_imageResult"

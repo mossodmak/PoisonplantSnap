@@ -141,7 +141,7 @@ public class TensorFlowLite implements Classifier {
         for (int i = 0; i < labelList.size(); ++i) {
             float confidence = (labelProbArray[0][i] & 0xff) / 255.0f;
             //if (confidence > THRESHOLD) {
-            pq.add(new Recognition(labelList.size() > i ? labelList.get(i) : "unknown", quant, confidence));
+                pq.add(new Recognition(labelList.size() > i ? labelList.get(i) : "unknown", quant, confidence));
             //}
         }
 
@@ -169,7 +169,7 @@ public class TensorFlowLite implements Classifier {
         for (int i = 0; i < labelList.size(); ++i) {
             float confidence = labelProbArray[0][i];
                 //if (confidence > THRESHOLD) {
-            pq.add(new Recognition(labelList.size() > i ? labelList.get(i) : "unknown", quant, confidence));
+                    pq.add(new Recognition(labelList.size() > i ? labelList.get(i) : "unknown", quant, confidence));
                 //}
         }
 

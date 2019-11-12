@@ -10,4 +10,5 @@
     <color name="common_btn">#c0c0c0</color>
     <color name="light_green">#86f974</color>
     <color name="white">#ffffff</color>
+    <color name="topic">#555555</color>
 </resources>

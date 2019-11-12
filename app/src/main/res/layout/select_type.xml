@@ -8,12 +8,11 @@
         android:id="@+id/identified_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="26dp"
-        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30dp"
+        android:textColor="@color/topic"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:fontFamily="@font/roboto_condensed_regular"
-        android:text="Choose related organ" />
+        android:layout_marginTop="30dp"
+        android:text="SELECT ORGAN" />
 
     <ImageView
         android:id="@+id/identified_image"
@@ -29,26 +28,31 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/identified_image"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/shape_button">
+        android:layout_marginTop="20dp">
 
         <Button
             android:id="@+id/identified_btn_leaf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="70dp"
             android:text="Leaf"
             android:layout_marginHorizontal="20dp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/gallery_folder"/>
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:background="@drawable/gallery_folder"
+            android:drawableTop="@drawable/ic_002_leaf_1"/>
 
         <Button
             android:id="@+id/identified_btn_flower"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="70dp"
             android:text="Flower"
             android:layout_marginHorizontal="20dp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/gallery_folder" />
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:background="@drawable/gallery_folder"
+            android:drawableTop="@drawable/ic_005_lotus_flower"/>
 
     </LinearLayout>
 

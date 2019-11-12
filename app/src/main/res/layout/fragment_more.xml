@@ -3,7 +3,7 @@
     android:id="@+id/fragment_more"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2">
+    android:background="@drawable/projectbg">
 
     <TextView
         android:id="@+id/more_title"
@@ -14,7 +14,7 @@
         android:layout_marginTop="40dp"
         android:text="More Fragment"
         android:textSize="30sp"
-        android:textColor="@android:color/white"/>
+        android:textColor="@color/topic"/>
 
     <TextView
         android:id="@+id/help_button"
@@ -26,7 +26,7 @@
         android:clickable="true"
         android:text="Help"
         android:textSize="26dp"
-        android:textColor="@android:color/white" />
+        android:textColor="@color/topic" />
 
     <TextView
         android:id="@+id/credit_button"
@@ -38,7 +38,7 @@
         android:clickable="true"
         android:text="Credit"
         android:textSize="26dp"
-        android:textColor="@android:color/white" />
+        android:textColor="@color/topic" />
 
     <TextView
         android:id="@+id/setting_button"
@@ -50,7 +50,16 @@
         android:clickable="true"
         android:text="Setting"
         android:textSize="26dp"
-        android:textColor="@android:color/white" />
+        android:textColor="@color/topic" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_below="@+id/setting_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOGIN"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
 
 
 </RelativeLayout>
