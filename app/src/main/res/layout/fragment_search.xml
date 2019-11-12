@@ -21,8 +21,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:clickable="true"
-            android:text="Find a Plant"
-            android:textColor="@color/colorPrimaryDark"
+            android:text="Find The Plant"
+            android:textColor="@color/grey"
             android:fontFamily="@font/roboto_condensed_regular"
             android:textSize="26sp"
              />
