@@ -122,24 +122,7 @@ public class ShowResult extends AppCompatActivity {
 
             }
         });
-//        button_result2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(ShowResult.this,ViewInfo.class);
-//                intent.putExtra("result",cutWongLeb(button_result3.getText().toString()));
-//                startActivity(intent);
-//
-//            }
-//        });
-//        button_result3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(ShowResult.this,ViewInfo.class);
-//                intent.putExtra("result",cutWongLeb(button_result3.getText().toString()));
-//                startActivity(intent);
-//
-//            }
-//        });
+
     }
     private void uploadImage(){
         //Save from data in memory method

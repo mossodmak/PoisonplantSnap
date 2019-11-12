@@ -74,7 +74,6 @@ public class ShowDetail extends AppCompatActivity {
         //title.setText(mtitle);
         //detail.setText(desc);
         //imageView.setImageBitmap(bitmap);
-        Picasso.get().load(images).into(imageView);
     }
 
     @Override

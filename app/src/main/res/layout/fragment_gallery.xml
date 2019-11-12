@@ -22,7 +22,7 @@
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/roboto_condensed_regular"
                 android:text="Feeds"
-                android:textColor="@color/grey"
+                android:textColor="@color/topic"
                 android:textSize="26sp" />
 
         </LinearLayout>
