@@ -26,6 +26,7 @@ public class GalleryFragment extends Fragment {
     RecyclerView recyclerView;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
+    DatabaseReference refShare;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -38,24 +39,30 @@ public class GalleryFragment extends Fragment {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         //connect firebase table
+
         reference = firebaseDatabase.getReference().child("data");
+        refShare = firebaseDatabase.getReference().child("shares");
 
         return view;
     }
     @Override
     public void onStart() {
         super.onStart();
-        FirebaseRecyclerAdapter<Model, ViewHolder> firebaseRecyclerAdapter =
-                new FirebaseRecyclerAdapter<Model, ViewHolder>(
-                        Model.class,
+        FirebaseRecyclerAdapter<ShareObject, ViewHolder> firebaseRecyclerAdapter =
+                new FirebaseRecyclerAdapter<ShareObject, ViewHolder>(
+                        ShareObject.class,
                         R.layout.gallery_item,
                         ViewHolder.class,
-                        reference
+                        refShare
                 ) {
                     @Override
-                    protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
+                    protected void populateViewHolder(ViewHolder viewHolder, ShareObject object, int position) {
 
-                        viewHolder.setGalleryDetails(getContext(),model.getTitle(),model.getImage());
+                        viewHolder.setShareDetails(getContext(),object.getUser(),object.getImageURL(),object.getTimestamp()
+                                ,object.getPlant(),object.getPercent());
+
+
+
 
                     }
 
@@ -65,21 +72,6 @@ public class GalleryFragment extends Fragment {
                         viewHolder.setOnClickListener(new ViewHolder.ClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                                TextView title = view.findViewById(R.id.gallery_title);
-
-                                //ImageView imageButton = view.findViewById(R.id.rImageTv);
-                                String mtitle = title.getText().toString();
-
-                                String mimage = getItem(position).getImage();
-
-                                Intent intent = new Intent(view.getContext(), ShowDetail.class);
-                                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                                //bitmap.compress(Bitmap.CompressFormat.PNG, 100,stream);
-                                // byte[] bytes = stream.toByteArray();
-                                intent.putExtra("image", mimage );
-                                intent.putExtra("title",mtitle);
-
-                                startActivity(intent);
                             }
                             @Override
                             public void onItemlongClick(View view, int position) {

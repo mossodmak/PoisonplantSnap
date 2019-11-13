@@ -97,9 +97,9 @@ public class MainActivity extends AppCompatActivity {
     public void createPictureFolder (){
          if(!folder.exists()){
              folder.mkdirs();
-             Toast.makeText(this, folder+" Created Folder", Toast.LENGTH_SHORT).show();
+             //Toast.makeText(this, folder+" Created Folder", Toast.LENGTH_SHORT).show();
          }else{
-             Toast.makeText(this, folder.getPath()+" Folder is Exist", Toast.LENGTH_SHORT).show();
+             //Toast.makeText(this, folder.getPath()+" Folder is Exist", Toast.LENGTH_SHORT).show();
          }
     }
 
@@ -112,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
                     switch (menuItem.getItemId()) {
                         case R.id.nav_search:
                             selectedFragment = new SearchFragment();
-                            Toast.makeText(MainActivity.this, "Click", Toast.LENGTH_SHORT).show();
                             break;
                         case R.id.nav_gallery:
                             selectedFragment = new GalleryFragment();

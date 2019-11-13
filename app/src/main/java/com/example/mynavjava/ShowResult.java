@@ -1,6 +1,7 @@
 package com.example.mynavjava;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -8,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -67,8 +69,14 @@ public class ShowResult extends AppCompatActivity {
     private Uri filePath;
     private FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
-    private StorageReference photoRef;
+    private String photo_filepath;
+    //For upload in database
     private String photo_url;
+    private String timestamp;
+    private String percent;
+    private String plant;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +84,6 @@ public class ShowResult extends AppCompatActivity {
         //currentPhotoPath = this.getIntent().getStringExtra("DIR_PATH");
         modelName = this.getIntent().getStringExtra("modelName");
         initTensorFlowAndLoadModel(modelName);
-
 
         setContentView(R.layout.show_result);
         unknown = findViewById(R.id.show_result_textResult);
@@ -91,15 +98,16 @@ public class ShowResult extends AppCompatActivity {
         check = cutWongLeb(button_result1.getText().toString());
         getImagebyResult();
         checkUnknown();
-
+        //Upload to FireDatabase
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference().child("shares");
         //Upload to FireStorage
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
-        photoRef = storageReference.child("photos/"+ UUID.randomUUID().toString());
-        photo_url = photoRef.toString();
         btn_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                filePath = getImageUri(ShowResult.this, bitmap);
                 uploadImage();
             }
         });
@@ -115,30 +123,69 @@ public class ShowResult extends AppCompatActivity {
             }
         });
     }
+    private void shareData(){
+        timestamp = "10AM";
+        plant = "Sunflower";
+        percent = "30%";
+        ShareObject post = new ShareObject( photo_url, timestamp, plant, percent);
+
+        databaseReference.push() // Use this method to create unique id of commit
+                .setValue(post);
+
+    }
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
+    }
     private void uploadImage(){
         //Save from data in memory method
-        //Save from data in memory method
-//        imageResult.setDrawingCacheEnabled(true);
-//        imageResult.buildDrawingCache();
-//        Bitmap bitmap2 = ((BitmapDrawable) imageResult.getDrawable()).getBitmap();
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//        bitmap2.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-//        byte[] data = baos.toByteArray();
-//
-//        UploadTask uploadTask = photoRef.putBytes(data);
-//        uploadTask.addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception exception) {
-//                Toast.makeText(ShowResult.this, "Failed", Toast.LENGTH_SHORT);
-//            }
-//        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//            @Override
-//            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                Toast.makeText(ShowResult.this, "Uploaded", Toast.LENGTH_SHORT);
-//                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
-//                // ...
-//            }
-//        });
+
+        if(filePath != null){
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+
+            storageReference = firebaseStorage.getReference().child("photos/"+ UUID.randomUUID().toString());
+            storageReference.putFile(filePath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressDialog.dismiss();
+                            Toast.makeText(ShowResult.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                            storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    photo_url = uri.toString() ;
+                                    shareData();
+                                    //url.setText(img_url);
+                                    //url2.setText(uri.toString());
+                                    //Glide.with(ShowResult.this).load(uri).into(img_retrieve);
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(ShowResult.this, " "+storageReference.toString(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(ShowResult.this, "Failed", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress  = (100.0 * taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
+                        }
+                    });
+        }
     }
     private void getResultByTF(Bitmap imageBitmapCamera) {
 
@@ -223,7 +270,6 @@ public class ShowResult extends AppCompatActivity {
         }else{
             unknown.setText(cutWongLeb(button_result1.getText().toString()));
         }
-
     }
     private void getImagebyResult(){
         pic1 = cutWongLeb(button_result1.getText().toString());

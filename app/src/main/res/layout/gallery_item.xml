@@ -14,10 +14,18 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/gallery_title"
-            android:text="Title"
+            android:id="@+id/gallery_user"
+            android:text="User"
             android:textColor="#000"
             android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:id="@+id/gallery_date"
+            android:text="Date"
+            android:textColor="#000"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></TextView>
@@ -28,6 +36,22 @@
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:background="@drawable/loading"></ImageView>
+        <TextView
+            android:id="@+id/gallery_title"
+            android:text="Plant"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:id="@+id/gallery_percent"
+            android:text="Percent"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></TextView>
 
     </LinearLayout>
 
