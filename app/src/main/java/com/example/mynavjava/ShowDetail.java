@@ -20,7 +20,7 @@ import com.squareup.picasso.Picasso;
 
 public class ShowDetail extends AppCompatActivity {
 
-    TextView title, poisonpart,sympton,recover;
+    TextView title, poisonpart, sympton, recover;
     ImageView imageView;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
@@ -74,7 +74,6 @@ public class ShowDetail extends AppCompatActivity {
         //title.setText(mtitle);
         //detail.setText(desc);
         //imageView.setImageBitmap(bitmap);
-        Picasso.get().load(images).into(imageView);
     }
 
     @Override
