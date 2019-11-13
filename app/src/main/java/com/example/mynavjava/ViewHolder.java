@@ -34,11 +34,13 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         });
 
     }
-    public void setDetails(Context ct,String title,  String image){
+    public void setDetails(Context ct,String title,  String image ,String sciName){
         TextView titleView = view.findViewById(R.id.rTitleTv);
         ImageView imageTv = view.findViewById(R.id.rImageTv);
+        TextView ciname = view.findViewById(R.id.sciname);
         titleView.setText(title);
         Picasso.get().load(image).into(imageTv);
+        ciname.setText(sciName);
 
 
     }

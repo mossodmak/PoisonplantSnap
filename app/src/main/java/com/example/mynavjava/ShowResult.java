@@ -39,6 +39,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 import java.util.UUID;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -119,14 +121,15 @@ public class ShowResult extends AppCompatActivity {
                 Intent intent = new Intent(ShowResult.this,ShowDetail.class);
                 intent.putExtra("title",check);
                 startActivity(intent);
-
             }
         });
     }
     private void shareData(){
-        timestamp = "10AM";
-        plant = "Sunflower";
-        percent = "30%";
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy  HH:mm a", Locale.getDefault());
+        sdf.setTimeZone(TimeZone.getDefault());
+        timestamp = sdf.format(new Date());
+        plant = cutWongLeb(button_result1.getText().toString());
+        percent = "Predict with "+getPercent(button_result1.getText().toString());
         ShareObject post = new ShareObject( photo_url, timestamp, plant, percent);
 
         databaseReference.push() // Use this method to create unique id of commit
@@ -262,6 +265,16 @@ public class ShowResult extends AppCompatActivity {
                 }
             }
         return conf;
+    }
+    public String getPercent(String str){
+        String reString = "";
+        int n = str.length();
+        for(int i = 0; i < n; i++){
+            if(str.charAt(i) == '('){
+                reString = str.substring(i+1, n-1);
+            }
+        }
+        return reString.trim();
     }
     public void checkUnknown(){
         int n = getInt(button_result1.getText().toString());

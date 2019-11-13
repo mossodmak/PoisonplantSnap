@@ -83,11 +83,41 @@ public class SearchFragment extends Fragment {
                         firebaseSearchQuery
                 ) {
                     @Override
-                    protected void populateViewHolder(ViewHolder viewHolder, Model model, int i) {
-                        viewHolder.setDetails(getContext(),model.getTitle(),model.getImage());
+                    protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
+                        viewHolder.setDetails(getContext(),model.getTitle(),model.getImage(),model.getSciname());
 
                     }
+                    @Override
+                    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                        ViewHolder viewHolder = super.onCreateViewHolder(parent, viewType);
+                        viewHolder.setOnClickListener(new ViewHolder.ClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                TextView title = view.findViewById(R.id.rTitleTv);
+
+                                //ImageView imageButton = view.findViewById(R.id.rImageTv);
+                                String mtitle = title.getText().toString();
+
+                                String mimage = getItem(position).getImage();
+
+                                Intent intent = new Intent(view.getContext(), ShowDetail.class);
+                                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                                //bitmap.compress(Bitmap.CompressFormat.PNG, 100,stream);
+                                // byte[] bytes = stream.toByteArray();
+                                intent.putExtra("image", mimage );
+                                intent.putExtra("title",mtitle);
+
+                                startActivity(intent);
+                            }
+                            @Override
+                            public void onItemlongClick(View view, int position) {
+
+                            }
+                        });
+                        return viewHolder;
+                    }
                 };
+
         recyclerView.setAdapter(firebaseRecyclerAdapter);
     }
 
@@ -103,7 +133,7 @@ public class SearchFragment extends Fragment {
                 ) {
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
-                        viewHolder.setDetails(getContext(),model.getTitle(),model.getImage());
+                        viewHolder.setDetails(getContext(),model.getTitle(),model.getImage(),model.getSciname());
 
                     }
 

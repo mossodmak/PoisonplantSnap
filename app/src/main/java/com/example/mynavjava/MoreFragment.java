@@ -55,15 +55,6 @@ public class MoreFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_more, container, false);
-        help = view.findViewById(R.id.help_button);
-        // Configure Google Sign In
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
-        mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
         btn_login = view.findViewById(R.id.btn_login);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override

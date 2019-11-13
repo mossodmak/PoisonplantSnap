@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/projectbg">
+
+    <TextView
+        android:id="@+id/profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:text="PROFILE"
+        android:textSize="20sp"
+        android:textColor="@color/topic"/>
+
+    <ImageView
+        android:id="@+id/userImage"
+        android:layout_width="163dp"
+        android:layout_height="149dp"
+        android:layout_below="@+id/profile"
+        android:background="@drawable/circlebg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"></ImageView>
+l
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userImage"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="289dp"
+        android:layout_marginEnd="102dp"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:text="PROFILE"
+        android:textColor="@color/topic"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonbg"
+        android:layout_marginTop="52dp"
+        android:text="Logout"></Button>
+
+</RelativeLayout>

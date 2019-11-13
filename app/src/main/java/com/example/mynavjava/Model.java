@@ -2,7 +2,7 @@ package com.example.mynavjava;
 
 public class Model {
 
-    String title, image;
+    String title, image,sciname;
 
     public Model(){
 
@@ -24,4 +24,8 @@ public class Model {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public String getSciname(){return sciname;}
+    public void setSciname(String sciname){this.sciname = sciname;}
+
 }
