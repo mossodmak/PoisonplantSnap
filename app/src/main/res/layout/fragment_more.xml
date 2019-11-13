@@ -12,51 +12,15 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="More Fragment"
-        android:textSize="30sp"
+        android:text="PROFILE"
+        android:textSize="20sp"
         android:textColor="@color/topic"/>
-
-    <TextView
-        android:id="@+id/help_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_below="@+id/more_title"
-        android:layout_centerHorizontal="true"
-        android:clickable="true"
-        android:text="Help"
-        android:textSize="26dp"
-        android:textColor="@color/topic" />
-
-    <TextView
-        android:id="@+id/credit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/help_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:clickable="true"
-        android:text="Credit"
-        android:textSize="26dp"
-        android:textColor="@color/topic" />
-
-    <TextView
-        android:id="@+id/setting_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/credit_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:clickable="true"
-        android:text="Setting"
-        android:textSize="26dp"
-        android:textColor="@color/topic" />
-
     <Button
         android:id="@+id/btn_login"
-        android:layout_below="@+id/setting_button"
+        android:layout_below="@+id/more_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/buttonbg"
         android:text="LOGIN"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"/>

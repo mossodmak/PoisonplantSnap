@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="4dp"
+    android:padding="5dp"
     app:cardBackgroundColor="@color/fadewhite"
     app:cardCornerRadius="3dp"
     app:cardElevation="3dp"
@@ -24,9 +25,8 @@
         <TextView
             android:id="@+id/gallery_date"
             android:text="Date"
-            android:textColor="#000"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/grey"
+            android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></TextView>
         <ImageView
@@ -48,8 +48,7 @@
             android:id="@+id/gallery_percent"
             android:text="Percent"
             android:textColor="#000"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></TextView>
 

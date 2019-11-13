@@ -44,7 +44,6 @@ public class MoreFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_more, container, false);
-        help = view.findViewById(R.id.help_button);
         btn_login = view.findViewById(R.id.btn_login);
 
 // Create and launch sign-in intent
