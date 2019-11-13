@@ -2,6 +2,7 @@ package com.example.mynavjava;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,38 +25,28 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 
 public class SearchFragment extends Fragment {
     RecyclerView recyclerView;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
-    String test = "test in class";
+    SearchView searchView;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_search, container, false);
         TextView search = view.findViewById(R.id.search_title);
 
-        // Change Fragment by Fragment
-//        final ResultFragment result = new ResultFragment();
-//        final FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//
-//        search.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                transaction.replace(R.id.fragment_container, result);
-//                transaction.commit();
-//            }
-//        });
-//        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
-//        actionBar.setTitle("Search");
-
+        searchView = view.findViewById(R.id.searchView);
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
 
@@ -63,6 +54,20 @@ public class SearchFragment extends Fragment {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         reference = firebaseDatabase.getReference().child("data");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                firebaseSearch(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                firebaseSearch(newText);
+                return false;
+            }
+        });
 
 
         return view;
@@ -133,37 +138,6 @@ public class SearchFragment extends Fragment {
                     }
                 };
         recyclerView.setAdapter(firebaseRecyclerAdapter);
-    }
-    @Override //For Fragments.
-    public void onCreateOptionsMenu (Menu menu, MenuInflater inflater){
-        inflater.inflate(R.menu.menu,menu);
-        MenuItem item = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                firebaseSearch(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                firebaseSearch(newText);
-                return false;
-            }
-        });
-        super.onCreateOptionsMenu(menu,inflater);
-
-
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        int id = item.getItemId();
-
-        if(id==R.id.action_settings){
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }
 

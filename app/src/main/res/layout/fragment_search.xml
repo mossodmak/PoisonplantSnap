@@ -24,8 +24,25 @@
             android:text="Find The Plant"
             android:textColor="@color/topic"
             android:fontFamily="@font/roboto_condensed_regular"
-            android:textSize="26sp"
-             />
+            android:textSize="26sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            app:cardBackgroundColor="@color/fadewhite"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true">
+
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/zerowhite" />
+        </androidx.cardview.widget.CardView>
+
 
 
     </LinearLayout>
