@@ -84,7 +84,7 @@ public class SearchFragment extends Fragment {
                 ) {
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Model model, int i) {
-                        viewHolder.setDetails(getContext(),model.getTitle(),model.getImage());
+                        viewHolder.setDetails(getContext(),model.getTitle(),model.getImage(),model.getSciname());
 
                     }
                 };
@@ -103,7 +103,7 @@ public class SearchFragment extends Fragment {
                 ) {
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
-                        viewHolder.setDetails(getContext(),model.getTitle(),model.getImage());
+                        viewHolder.setDetails(getContext(),model.getTitle(),model.getImage(),model.getSciname());
 
                     }
 
