@@ -1,5 +1,6 @@
 package com.example.mynavjava;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,6 +31,7 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthCredential;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import org.w3c.dom.Text;
@@ -44,17 +46,28 @@ import static java.util.logging.Logger.global;
 
 public class MoreFragment extends Fragment {
 
-    private TextView help;
     private Button btn_login;
     private int RC_SIGN_IN = 23;
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
-    private static final String TAG = "MainActivity";
+    private TextView tv_username, tv_password;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_more, container, false);
+        // Configure Google Sign In
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        // Build a GoogleSignInClient with the options specified by gso.
+        mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+
+        tv_username = view.findViewById(R.id.tv_username);
+        tv_password = view.findViewById(R.id.tv_password);
         btn_login = view.findViewById(R.id.btn_login);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +76,12 @@ public class MoreFragment extends Fragment {
             }
         });
         return view;
+    }@Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
     }
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -81,48 +100,45 @@ public class MoreFragment extends Fragment {
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
-                Log.w(TAG, "Google sign in failed", e);
-                updateUI(null);
+                //Log.w(TAG, "Google sign in failed", e);
                 // ...
             }
         }
     }
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
-    }
+
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
+        //Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener((Executor) this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithCredential:success");
+//                            Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            Snackbar.make(getActivity().findViewById(R.id.main_layout), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
+//                            Log.w(TAG, "signInWithCredential:failure", task.getException());
                             updateUI(null);
                         }
+
+                        // ...
                     }
                 });
     }
 
     private void updateUI(FirebaseUser user) {
         if(user != null){
+            tv_username.setText(user.getEmail());
+            tv_password.setText(user.getDisplayName());
+            Toast.makeText(getContext(), "Already login", Toast.LENGTH_SHORT).show();
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new GalleryFragment()).commit();
+                    new ProfileFragment()).commit();
         }else{
-
+            Toast.makeText(getContext(), "No user login", Toast.LENGTH_SHORT).show();
         }
     }
 }
