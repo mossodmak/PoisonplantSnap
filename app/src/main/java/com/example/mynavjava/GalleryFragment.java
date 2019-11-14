@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.io.ByteArrayOutputStream;
 
@@ -48,12 +49,13 @@ public class GalleryFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        Query firebaseSearchQuery = refShare.orderByChild("timestamp");
         FirebaseRecyclerAdapter<ShareObject, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<ShareObject, ViewHolder>(
                         ShareObject.class,
                         R.layout.gallery_item,
                         ViewHolder.class,
-                        refShare
+                        firebaseSearchQuery
                 ) {
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, ShareObject object, int position) {

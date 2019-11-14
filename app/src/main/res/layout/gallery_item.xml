@@ -17,7 +17,7 @@
         <TextView
             android:id="@+id/gallery_user"
             android:text="User"
-            android:textColor="#000"
+            android:textColor="@color/topic"
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_width="match_parent"
@@ -39,7 +39,7 @@
         <TextView
             android:id="@+id/gallery_title"
             android:text="Plant"
-            android:textColor="#000"
+            android:textColor="@color/topic"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_width="match_parent"
@@ -51,7 +51,6 @@
             android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></TextView>
-
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

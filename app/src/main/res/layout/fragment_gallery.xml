@@ -15,7 +15,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/roboto_condensed_regular"
-        android:text="Feeds"
+        android:text="FEEDS"
         android:textColor="@color/topic"
         android:textSize="26sp" />
 

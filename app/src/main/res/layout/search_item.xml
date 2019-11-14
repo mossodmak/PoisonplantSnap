@@ -28,7 +28,7 @@
         <TextView
             android:id="@+id/rTitleTv"
             android:text="Title"
-            android:textColor="#000"
+            android:textColor="@color/topic"
             android:textSize="20sp"
             android:layout_gravity="center_vertical"
             android:background="@color/zerowhite"

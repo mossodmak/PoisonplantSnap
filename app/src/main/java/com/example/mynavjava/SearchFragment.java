@@ -59,12 +59,14 @@ public class SearchFragment extends Fragment {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 firebaseSearch(query);
+                firebaseSearchsciname(query);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
                 firebaseSearch(newText);
+                firebaseSearchsciname(newText);
                 return false;
             }
         });
@@ -74,6 +76,54 @@ public class SearchFragment extends Fragment {
     }
     private void firebaseSearch(String searchtext){
         Query firebaseSearchQuery = reference.orderByChild("title").startAt(searchtext.toLowerCase()).endAt(searchtext.toLowerCase()+"\uf8ff");
+
+        FirebaseRecyclerAdapter<Model, ViewHolder> firebaseRecyclerAdapter =
+                new FirebaseRecyclerAdapter<Model, ViewHolder>(
+                        Model.class,
+                        R.layout.search_item,
+                        ViewHolder.class,
+                        firebaseSearchQuery
+                ) {
+                    @Override
+                    protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
+                        viewHolder.setDetails(getContext(),model.getTitle(),model.getImage(),model.getSciname());
+
+                    }
+                    @Override
+                    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                        ViewHolder viewHolder = super.onCreateViewHolder(parent, viewType);
+                        viewHolder.setOnClickListener(new ViewHolder.ClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                TextView title = view.findViewById(R.id.rTitleTv);
+
+                                //ImageView imageButton = view.findViewById(R.id.rImageTv);
+                                String mtitle = title.getText().toString();
+
+                                String mimage = getItem(position).getImage();
+
+                                Intent intent = new Intent(view.getContext(), ShowDetail.class);
+                                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                                //bitmap.compress(Bitmap.CompressFormat.PNG, 100,stream);
+                                // byte[] bytes = stream.toByteArray();
+                                intent.putExtra("image", mimage );
+                                intent.putExtra("title",mtitle);
+
+                                startActivity(intent);
+                            }
+                            @Override
+                            public void onItemlongClick(View view, int position) {
+
+                            }
+                        });
+                        return viewHolder;
+                    }
+                };
+
+        recyclerView.setAdapter(firebaseRecyclerAdapter);
+    }
+    private void firebaseSearchsciname(String searchtext){
+        Query firebaseSearchQuery = reference.orderByChild("sciname").startAt(searchtext.toUpperCase()).endAt(searchtext.toLowerCase()+"\uf8ff");
 
         FirebaseRecyclerAdapter<Model, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Model, ViewHolder>(
