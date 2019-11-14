@@ -31,6 +31,7 @@ import androidx.fragment.app.Fragment;
 
 //import com.soundcloud.android.crop.Crop;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -148,6 +149,8 @@ public class CameraFragment extends Fragment {
 //            Crop.of(source_uri,dest_uri).asSquare().start(getActivity());
             imageBitmapCamera = Bitmap.createScaledBitmap(imageBitmapCamera, INPUT_SIZE, INPUT_SIZE, false);
 
+            //Uri pickedImage = getImageUri(getContext(), imageBitmapCamera);
+
 
             Intent intent = new Intent(cons, IdentifyType.class);
             intent.putExtra("photo", imageBitmapCamera);
@@ -170,7 +173,7 @@ public class CameraFragment extends Fragment {
 //              intent.putExtra("URI_IMAGE", pickedImage);
                 startActivity(intent);
 
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
@@ -227,5 +230,11 @@ public class CameraFragment extends Fragment {
         Uri contentUri = Uri.fromFile(f);
         mediaScanIntent.setData(contentUri);
         getContext().sendBroadcast(mediaScanIntent);
+    }
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
     }
 }

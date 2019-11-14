@@ -8,10 +8,11 @@
         android:id="@+id/identified_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
         android:textColor="@color/topic"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:textSize="26sp"
         android:text="SELECT ORGAN" />
 
     <ImageView

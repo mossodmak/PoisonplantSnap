@@ -47,7 +47,7 @@
         <TextView
             android:id="@+id/gallery_percent"
             android:text="Percent"
-            android:textColor="#000"
+            android:textColor="@color/topic"
             android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></TextView>
