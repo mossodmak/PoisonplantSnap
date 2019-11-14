@@ -11,37 +11,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:textSize="26sp"
         android:text="PROFILE"
-        android:textSize="20sp"
         android:textColor="@color/topic"/>
-    <Button
-        android:id="@+id/btn_login"
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/more_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/buttonbg"
-        android:text="LOGIN"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"/>
-    <TextView
-        android:id="@+id/tv_username"
-        android:layout_below="@+id/btn_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Username:"
-        android:textSize="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_centerHorizontal="true"/>
-    <TextView
-        android:id="@+id/tv_password"
-        android:layout_below="@+id/tv_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password:"
-        android:textSize="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_centerHorizontal="true"/>
+        android:paddingHorizontal="4dp"
+        android:layout_marginTop="120dp" />
 
 
 </RelativeLayout>

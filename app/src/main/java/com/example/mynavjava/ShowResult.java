@@ -23,6 +23,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -79,6 +81,9 @@ public class ShowResult extends AppCompatActivity {
     private String plant;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
+    //For check user already login or not?
+    private FirebaseUser user;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +91,9 @@ public class ShowResult extends AppCompatActivity {
         //currentPhotoPath = this.getIntent().getStringExtra("DIR_PATH");
         modelName = this.getIntent().getStringExtra("modelName");
         initTensorFlowAndLoadModel(modelName);
+        //getUser login
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
 
         setContentView(R.layout.show_result);
         unknown = findViewById(R.id.show_result_textResult);
@@ -125,12 +133,17 @@ public class ShowResult extends AppCompatActivity {
         });
     }
     private void shareData(){
+        ShareObject post;
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy  HH:mm a", Locale.getDefault());
         sdf.setTimeZone(TimeZone.getDefault());
         timestamp = sdf.format(new Date());
         plant = cutWongLeb(button_result1.getText().toString());
         percent = "Predict with "+getPercent(button_result1.getText().toString());
-        ShareObject post = new ShareObject( photo_url, timestamp, plant, percent);
+        if(user != null) {
+            post = new ShareObject(photo_url, user.getDisplayName(), timestamp, plant, percent);
+        }else{
+            post = new ShareObject(photo_url, timestamp, plant, percent);
+        }
 
         databaseReference.push() // Use this method to create unique id of commit
                 .setValue(post);

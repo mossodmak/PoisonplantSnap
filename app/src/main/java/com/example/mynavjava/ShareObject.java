@@ -8,7 +8,7 @@ public class ShareObject {
     }
 
     public ShareObject(String imageURL, String timestamp, String plant, String percent) {
-        user = "Unknown";
+        user = "Anonymous";
         this.imageURL = imageURL;
         this.timestamp = timestamp;
         this.plant = plant;

@@ -14,16 +14,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:textSize="26sp"
         android:text="SNAP \u0026 DISCOVER"
-        android:textColor="@color/topic"
-        android:textSize="30sp" />
+        android:textColor="@color/topic" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="220dp"
+        android:layout_below="@+id/title_camera"
+        android:src="@drawable/photographing"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title_camera"
-        android:layout_marginTop="274dp"
+        android:layout_marginTop="280dp"
         android:layout_centerHorizontal="true" >
 
         <Button

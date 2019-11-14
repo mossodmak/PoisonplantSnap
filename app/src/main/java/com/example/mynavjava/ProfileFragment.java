@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -31,6 +32,7 @@ public class ProfileFragment extends Fragment {
         username.setText(currentUser.getDisplayName());
         imv_profile = view.findViewById(R.id.profile_image);
         imv_profile.setImageURI(currentUser.getPhotoUrl());
+        Glide.with(getActivity()).load(currentUser.getPhotoUrl()).into(imv_profile);
         logout = view.findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
