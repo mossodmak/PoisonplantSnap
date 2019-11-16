@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private final String filename = "PoisonPlantSnap";
     private File folder;
     private String folderPath;
+    private String command = "";
     //private String test;
     private DatabaseReference reff;
 
@@ -40,29 +41,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String testString = "String Fragment";
-//        reff = FirebaseDatabase.getInstance().getReference().child("Plant").child("1");
-//        reff.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                String test = dataSnapshot.child("name").getValue().toString();
-//
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//                Toast.makeText(MainActivity.this, "wrong", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        Toast.makeText(MainActivity.this, " Fire base is connect", Toast.LENGTH_LONG).show();
+        command = this.getIntent().getStringExtra("command");
 
         folder = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), filename);
         folderPath = folder.getPath();
-
-        // Passing Data to Fragment Method 1
-//        bundle.putString("test","hello");
-//        ResultFragment fg = new ResultFragment();
-//        fg.setArguments(bundle);
 
         if(checkPermission()==false) verifyPermission();
 
@@ -70,8 +52,14 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new SearchFragment()).commit();
+        if("feeds".equalsIgnoreCase(command)) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new GalleryFragment()).commit();
+            bottomNav.setSelectedItemId(R.id.nav_gallery);
+        }else{
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new SearchFragment()).commit();
+        }
 
     }
     // Passing Data to Fragment Method 2 (Outside onCreate)

@@ -47,23 +47,6 @@
         android:textSize="24dp"
         />
 
-
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:id="@+id/cardview"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@+id/show_result_textResult"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_marginBottom="4dp"-->
-<!--        app:cardBackgroundColor="@color/fadewhite"-->
-<!--        app:cardCornerRadius="3dp"-->
-<!--        app:cardElevation="3dp"-->
-<!--        app:cardUseCompatPadding="true"-->
-<!--        tools:context=".ShowResult">-->
-
-<!--        app:contentPadding="5dp"-->
-
         <LinearLayout
             android:id="@+id/show_result_layout1"
             android:layout_width="wrap_content"

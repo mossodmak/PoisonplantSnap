@@ -14,5 +14,6 @@
     <color name="grey">#777777</color>
     <color name="black">#000000</color>
     <color name="fadewhite">#B3ffffff</color>
+    <color name="fadewhite2">#D3ffffff</color>
     <color name="zerowhite">#00ffffff</color>
 </resources>

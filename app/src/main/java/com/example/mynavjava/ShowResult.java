@@ -1,5 +1,6 @@
 package com.example.mynavjava;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -67,6 +68,7 @@ public class ShowResult extends AppCompatActivity {
     private String a = "https://firebasestorage.googleapis.com/v0/b/mynavjava.appspot.com/o/%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%AB%E0%B8%A2%E0%B8%94.jpg?alt=media&token=cd85118d-f3e1-4a63-9f46-53730c5fd8b2";
     private String c = "https://firebasestorage.googleapis.com/v0/b/mynavjava.appspot.com/o/%E0%B8%AB%E0%B8%87%E0%B8%AD%E0%B8%99%E0%B9%84%E0%B8%81%E0%B9%88.jpg?alt=media&token=5454de0c-29ea-499c-b55b-52bc6eaef40a";
     private String d = "https://firebasestorage.googleapis.com/v0/b/mynavjava.appspot.com/o/sakul.jfif?alt=media&token=19cae5a2-ef88-434b-82a0-83e2bf4845db";
+    private String command;
 
     //For save picture to Storage
     private Button btn_share;
@@ -147,6 +149,11 @@ public class ShowResult extends AppCompatActivity {
 
         databaseReference.push() // Use this method to create unique id of commit
                 .setValue(post);
+
+        Intent intent = new Intent(ShowResult.this, MainActivity.class);
+        command = "feeds";
+        intent.putExtra("command", command);
+        startActivity(intent);
 
     }
     public Uri getImageUri(Context inContext, Bitmap inImage) {

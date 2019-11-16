@@ -61,7 +61,7 @@ public class GalleryFragment extends Fragment {
                     protected void populateViewHolder(ViewHolder viewHolder, ShareObject object, int position) {
 
                         viewHolder.setShareDetails(getContext(),object.getUser(),object.getImageURL(),object.getTimestamp()
-                                ,object.getPlant(),object.getPercent());
+                                ,object.getPlant(),object.getPercent(),object.getUri());
 
                     }
 

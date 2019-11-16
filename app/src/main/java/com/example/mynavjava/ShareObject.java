@@ -1,8 +1,10 @@
 package com.example.mynavjava;
 
+import android.net.Uri;
+
 public class ShareObject {
     private String imageURL, user, timestamp, plant, percent;
-
+    private Uri uri;
     public  ShareObject(){
 
     }
@@ -13,6 +15,7 @@ public class ShareObject {
         this.timestamp = timestamp;
         this.plant = plant;
         this.percent = percent;
+        this.uri = null;
     }
     public ShareObject(String imageURL, String user, String timestamp, String plant, String percent) {
         this.imageURL = imageURL;
@@ -20,10 +23,28 @@ public class ShareObject {
         this.timestamp = timestamp;
         this.plant = plant;
         this.percent = percent;
+        this.uri = null;
+    }
+
+    public ShareObject(String imageURL, String user, String timestamp, String plant, String percent, Uri uri) {
+        this.imageURL = imageURL;
+        this.user = user;
+        this.timestamp = timestamp;
+        this.plant = plant;
+        this.percent = percent;
+        this.uri = uri;
     }
 
     public String getImageURL() {
         return imageURL;
+    }
+
+    public Uri getUri() {
+        return uri;
+    }
+
+    public void setUri(Uri uri) {
+        this.uri = uri;
     }
 
     public void setImageURL(String imageURL) {

@@ -3,16 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="4dp"
+    android:layout_marginBottom="10dp"
     app:cardBackgroundColor="@color/fadewhite"
-    app:cardCornerRadius="3dp"
-
-    app:contentPadding="5dp"
-    app:cardUseCompatPadding="true">
+    app:cardCornerRadius="5dp"
+    app:cardUseCompatPadding="true"
+    android:outlineSpotShadowColor="@color/zerowhite"
+    android:outlineAmbientShadowColor="@color/zerowhite">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@color/zerowhite">
         <ImageView
             android:id="@+id/rImageTv"
             android:layout_width="120dp"
@@ -23,7 +24,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/zerowhite">
         <TextView
             android:id="@+id/rTitleTv"
             android:text="Title"
