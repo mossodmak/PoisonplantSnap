@@ -135,7 +135,7 @@ public class ShowResult extends AppCompatActivity {
             }
         });
         //Btn back to select type
-        btn_back.findViewById(R.id.show_result_back);
+        btn_back = findViewById(R.id.show_result_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
