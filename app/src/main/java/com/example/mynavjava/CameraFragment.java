@@ -62,10 +62,10 @@ public class CameraFragment extends Fragment {
     private File photoFile = null;
     private Uri imageUri;
 
-    public CameraFragment(Context context, String folderPath) {
-        cons = context;
-        directoryPath = folderPath;
-    }
+//    public CameraFragment(Context context, String folderPath) {
+//        cons = context;
+//        directoryPath = folderPath;
+//    }
 
     @Nullable
     @Override
@@ -152,7 +152,7 @@ public class CameraFragment extends Fragment {
             //Uri pickedImage = getImageUri(getContext(), imageBitmapCamera);
 
 
-            Intent intent = new Intent(cons, IdentifyType.class);
+            Intent intent = new Intent(getActivity(), IdentifyType.class);
             intent.putExtra("photo", imageBitmapCamera);
             //intent.putExtra("DIR_PATH", directoryPath);
             startActivity(intent);
@@ -167,7 +167,7 @@ public class CameraFragment extends Fragment {
                 imageBitmapGallery = Bitmap.createScaledBitmap(imageBitmapGallery, INPUT_SIZE, INPUT_SIZE, false);
 
 
-                Intent intent = new Intent(cons, IdentifyType.class);
+                Intent intent = new Intent(getActivity(), IdentifyType.class);
                 intent.putExtra("photo", imageBitmapGallery);
 //              intent.putExtra("DIR_PATH", directoryPath);
 //              intent.putExtra("URI_IMAGE", pickedImage);

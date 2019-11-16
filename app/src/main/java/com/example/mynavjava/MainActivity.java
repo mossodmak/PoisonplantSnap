@@ -53,12 +53,11 @@ public class MainActivity extends AppCompatActivity {
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
         if("feeds".equalsIgnoreCase(command)) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new GalleryFragment()).commit();
             bottomNav.setSelectedItemId(R.id.nav_gallery);
+        }else if("camera".equalsIgnoreCase(command)) {
+            bottomNav.setSelectedItemId(R.id.nav_camera);
         }else{
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new SearchFragment()).commit();
+            bottomNav.setSelectedItemId(R.id.nav_search);
         }
 
     }
@@ -106,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case R.id.nav_camera:
                             createPictureFolder();
-                            selectedFragment = new CameraFragment(MainActivity.this, folderPath);
+                            selectedFragment = new CameraFragment();
                             break;
                         case R.id.nav_more:
                             selectedFragment = new MoreFragment();

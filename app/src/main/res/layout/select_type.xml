@@ -15,6 +15,15 @@
         android:textSize="26sp"
         android:text="SELECT ORGAN" />
 
+    <Button
+        android:id="@+id/identified_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:outlineProvider="none"
+        android:background="@drawable/ic_arrow_back_black_24dp_70"/>
+
     <ImageView
         android:id="@+id/identified_image"
         android:layout_width="224dp"

@@ -56,7 +56,7 @@ public class ShowResult extends AppCompatActivity {
     private static final int INPUT_SIZE = 224;
     private Handler handler = new Handler();
     private Executor executor = Executors.newSingleThreadExecutor();
-    private Button button_result1;
+    private Button button_result1, btn_back;
     private ImageView imageView1;
     private Classifier classifier;
     private String currentPhotoPath;
@@ -86,10 +86,12 @@ public class ShowResult extends AppCompatActivity {
     //For check user already login or not?
     private FirebaseUser user;
     private FirebaseAuth mAuth;
+    //Save bitmap image
+    private Bitmap bitmap;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final Bitmap bitmap = this.getIntent().getParcelableExtra("photo");
+        bitmap = this.getIntent().getParcelableExtra("photo");
         //currentPhotoPath = this.getIntent().getStringExtra("DIR_PATH");
         modelName = this.getIntent().getStringExtra("modelName");
         initTensorFlowAndLoadModel(modelName);
@@ -124,12 +126,21 @@ public class ShowResult extends AppCompatActivity {
             }
         });
         //Bug: btn_save never show on ShowResult at running application
-
         button_result1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShowResult.this,ShowDetail.class);
+                Intent intent = new Intent(ShowResult.this, ShowDetail.class);
                 intent.putExtra("title",check);
+                startActivity(intent);
+            }
+        });
+        //Btn back to select type
+        btn_back.findViewById(R.id.show_result_back);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShowResult.this, IdentifyType.class);
+                intent.putExtra("photo", bitmap);
                 startActivity(intent);
             }
         });

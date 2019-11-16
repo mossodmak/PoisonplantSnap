@@ -18,6 +18,15 @@
         android:textColor="@color/topic"
         android:text="RESULT" />
 
+    <Button
+        android:id="@+id/show_result_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:outlineProvider="none"
+        android:background="@drawable/ic_arrow_back_black_24dp_70"/>
+
     <ImageView
         android:id="@+id/show_result_imageResult"
         android:layout_width="224dp"
