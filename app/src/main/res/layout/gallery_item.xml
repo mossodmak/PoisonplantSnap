@@ -61,7 +61,8 @@
             android:text="Plant"
             android:textColor="@color/topic"
             android:textSize="18sp"
-            android:textStyle="normal"
+            android:fontFamily="@font/serithai"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></TextView>
         <TextView

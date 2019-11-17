@@ -31,7 +31,7 @@
             android:text="Title"
             android:textColor="@color/topic"
             android:textSize="20sp"
-            android:fontFamily=""
+            android:fontFamily="@font/serithai"
             android:layout_gravity="center_vertical"
             android:background="@color/zerowhite"
             android:layout_marginLeft="10dp"

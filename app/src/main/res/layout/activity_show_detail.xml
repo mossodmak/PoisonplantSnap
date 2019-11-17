@@ -69,6 +69,7 @@
             android:id="@+id/Title"
             android:padding="6dp"
             android:text="ชื่อ:"
+            android:fontFamily="@font/serithai"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="22sp"
             android:layout_width="match_parent"
@@ -78,13 +79,15 @@
             android:padding="6dp"
             android:text="Title"
             android:textColor="#000"
-            android:textSize="20sp"
+            android:textSize="18sp"
+            android:fontFamily="@font/serithai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></TextView>
         <TextView
             android:id="@+id/partTitle"
             android:padding="6dp"
             android:text="ส่วนที่มีพิษ:"
+            android:fontFamily="@font/serithai"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="22sp"
             android:layout_width="match_parent"
@@ -94,7 +97,8 @@
             android:padding="6dp"
             android:text="poisonpart"
             android:textColor="#000"
-            android:textSize="20sp"
+            android:textSize="18sp"
+            android:fontFamily="@font/serithai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></TextView>
         <TextView
@@ -103,6 +107,7 @@
             android:text="อาการของพิษ:"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="22sp"
+            android:fontFamily="@font/serithai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></TextView>
         <TextView
@@ -110,7 +115,8 @@
             android:padding="6dp"
             android:text="poisonpart"
             android:textColor="#000"
-            android:textSize="20sp"
+            android:textSize="18sp"
+            android:fontFamily="@font/serithai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></TextView>
         <TextView
@@ -119,6 +125,7 @@
             android:text="วิธีรักษา:"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="22sp"
+            android:fontFamily="@font/serithai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></TextView>
         <TextView
@@ -126,7 +133,8 @@
             android:padding="6dp"
             android:text="poisonpart"
             android:textColor="#000"
-            android:textSize="20sp"
+            android:textSize="18sp"
+            android:fontFamily="@font/serithai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></TextView>
 
