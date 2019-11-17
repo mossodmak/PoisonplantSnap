@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
             bottomNav.setSelectedItemId(R.id.nav_gallery);
         }else if("camera".equalsIgnoreCase(command)) {
             bottomNav.setSelectedItemId(R.id.nav_camera);
+        }else if("search".equalsIgnoreCase(command)){
+            bottomNav.setSelectedItemId(R.id.nav_search);
         }else{
             bottomNav.setSelectedItemId(R.id.nav_search);
         }

@@ -49,7 +49,7 @@ public class GalleryFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        Query firebaseSearchQuery = refShare.orderByChild("timestamp");
+        Query firebaseSearchQuery = refShare.orderByChild("timestampLong");
         FirebaseRecyclerAdapter<ShareObject, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<ShareObject, ViewHolder>(
                         ShareObject.class,
@@ -61,7 +61,7 @@ public class GalleryFragment extends Fragment {
                     protected void populateViewHolder(ViewHolder viewHolder, ShareObject object, int position) {
 
                         viewHolder.setShareDetails(getContext(),object.getUser(),object.getImageURL(),object.getTimestamp()
-                                ,object.getPlant(),object.getPercent(),object.getUri());
+                                ,object.getPlant(),object.getPercent());
 
                     }
 

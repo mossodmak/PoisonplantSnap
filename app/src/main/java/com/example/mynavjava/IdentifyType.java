@@ -24,6 +24,7 @@ public class IdentifyType extends AppCompatActivity {
     private String command;
     private int INPUT_SIZE = 224;
     private Uri image;
+    private String result;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +35,7 @@ public class IdentifyType extends AppCompatActivity {
         btn_flower = findViewById(R.id.identified_btn_flower);
         imageView.setImageBitmap(bitmap);
         btn_back = findViewById(R.id.identified_back);
+        result = null;
 
         btn_leaf.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +52,7 @@ public class IdentifyType extends AppCompatActivity {
                 Intent intent = new Intent(IdentifyType.this, ShowResult.class);
                 intent.putExtra("photo", bitmap);
                 intent.putExtra("modelName", modelName[1]);
+                intent.putExtra("result", result);
                 startActivity(intent);
             }
         });

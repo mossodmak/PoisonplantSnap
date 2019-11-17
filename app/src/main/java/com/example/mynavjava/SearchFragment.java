@@ -108,6 +108,8 @@ public class SearchFragment extends Fragment {
                                 // byte[] bytes = stream.toByteArray();
                                 intent.putExtra("image", mimage );
                                 intent.putExtra("title",mtitle);
+                                // for direct destination of back button
+                                intent.putExtra("destination", "search");
 
                                 startActivity(intent);
                             }

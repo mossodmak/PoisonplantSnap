@@ -14,6 +14,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,13 +51,14 @@ import java.util.concurrent.Executors;
 
 public class ShowResult extends AppCompatActivity {
 
+    private String result;
     private ImageView imageResult;
     private static final boolean QUANT = false;
     private static final String LABEL_PATH = "labels.txt";
     private static final int INPUT_SIZE = 224;
     private Handler handler = new Handler();
     private Executor executor = Executors.newSingleThreadExecutor();
-    private Button button_result1, btn_back;
+    private Button button_result1, btn_back, btn_close;
     private ImageView imageView1;
     private Classifier classifier;
     private String currentPhotoPath;
@@ -69,7 +71,7 @@ public class ShowResult extends AppCompatActivity {
     private String c = "https://firebasestorage.googleapis.com/v0/b/mynavjava.appspot.com/o/%E0%B8%AB%E0%B8%87%E0%B8%AD%E0%B8%99%E0%B9%84%E0%B8%81%E0%B9%88.jpg?alt=media&token=5454de0c-29ea-499c-b55b-52bc6eaef40a";
     private String d = "https://firebasestorage.googleapis.com/v0/b/mynavjava.appspot.com/o/sakul.jfif?alt=media&token=19cae5a2-ef88-434b-82a0-83e2bf4845db";
     private String command;
-
+    private TextView unidentified;
     //For save picture to Storage
     private Button btn_share;
     private Uri filePath;
@@ -88,6 +90,7 @@ public class ShowResult extends AppCompatActivity {
     private FirebaseAuth mAuth;
     //Save bitmap image
     private Bitmap bitmap;
+    private String destination;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +98,8 @@ public class ShowResult extends AppCompatActivity {
         //currentPhotoPath = this.getIntent().getStringExtra("DIR_PATH");
         modelName = this.getIntent().getStringExtra("modelName");
         initTensorFlowAndLoadModel(modelName);
+        //result = null;
+        result = this.getIntent().getStringExtra("result");
         //getUser login
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
@@ -108,10 +113,28 @@ public class ShowResult extends AppCompatActivity {
         //image result
         imageResult = findViewById(R.id.show_result_imageResult);
         imageResult.setImageBitmap(bitmap);
-        getResultByTF(bitmap);
+        //condition avoid redundant model classification
+        if(result != null){
+            button_result1.setText(result);
+            Toast.makeText(this, "result: "+result, Toast.LENGTH_SHORT).show();
+        }else {
+            getResultByTF(bitmap);
+        }
         check = cutWongLeb(button_result1.getText().toString());
         getImagebyResult();
-        checkUnknown();
+        LinearLayout layout_unidentifier = findViewById(R.id.show_result_layout2);
+        if(checkUnknown(modelName)){
+            unknown.setText("Unidentified");
+            btn_share.setVisibility(View.GONE);
+            imageView1.setVisibility(View.GONE);
+            button_result1.setVisibility(View.GONE);
+            unidentified = findViewById(R.id.show_result_unidentified);
+        }else{
+            unknown.setText(cutWongLeb(button_result1.getText().toString()));
+            unidentified = findViewById(R.id.show_result_unidentified);
+            unidentified.setVisibility(View.GONE);
+            layout_unidentifier.setVisibility(View.GONE);
+        }
         //Upload to FireDatabase
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference().child("shares");
@@ -131,6 +154,10 @@ public class ShowResult extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ShowResult.this, ShowDetail.class);
                 intent.putExtra("title",check);
+                intent.putExtra("result", result);
+                intent.putExtra("photo", bitmap);
+                destination = "showresult";
+                intent.putExtra("destination", destination);
                 startActivity(intent);
             }
         });
@@ -144,18 +171,30 @@ public class ShowResult extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //Btn close to Camera Fragment
+        btn_close = findViewById(R.id.show_result_close);
+        btn_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShowResult.this, MainActivity.class);
+                command = "camera";
+                intent.putExtra("command", command);
+                startActivity(intent);
+            }
+        });
     }
     private void shareData(){
         ShareObject post;
+        Long timeStampLong = System.currentTimeMillis()*(-1);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy  HH:mm a", Locale.getDefault());
         sdf.setTimeZone(TimeZone.getDefault());
         timestamp = sdf.format(new Date());
         plant = cutWongLeb(button_result1.getText().toString());
         percent = "Predict with "+getPercent(button_result1.getText().toString());
         if(user != null) {
-            post = new ShareObject(photo_url, user.getDisplayName(), timestamp, plant, percent);
+            post = new ShareObject(photo_url, user.getDisplayName(), timestamp, plant, percent, timeStampLong);
         }else{
-            post = new ShareObject(photo_url, timestamp, plant, percent);
+            post = new ShareObject(photo_url, timestamp, plant, percent, timeStampLong);
         }
 
         databaseReference.push() // Use this method to create unique id of commit
@@ -226,11 +265,12 @@ public class ShowResult extends AppCompatActivity {
         if (classifier != null) {
             final List<Classifier.Recognition> resultsCamera = classifier.recognizeImage(imageBitmapCamera);
 
-                    button_result1.setText(resultsCamera.get(0).toString());
-
+            result = resultsCamera.get(0).toString();
+            button_result1.setText(result);
                     /*if(getInt(resultsCamera.get(0).toString())<50){
                         unknown.setText("Unknown");
                     }*/
+            //Toast.makeText(this, "result: "+result, Toast.LENGTH_SHORT).show();
 
             }
 
@@ -263,6 +303,7 @@ public class ShowResult extends AppCompatActivity {
     private File createImageFile() throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        Long tinwStampLong = System.currentTimeMillis()*(-1);
         String imageFileName = "JPEG_" + timeStamp + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(
@@ -307,12 +348,39 @@ public class ShowResult extends AppCompatActivity {
         }
         return reString.trim();
     }
-    public void checkUnknown(){
+    public boolean checkUnknown(String modelName){
         int n = getInt(button_result1.getText().toString());
-        if(n<50){
-            unknown.setText("Unidentified");
+        pic1 = cutWongLeb(button_result1.getText().toString());
+        if(modelName.equals("model4_leaf_quant_False.tflite")) {
+            if (pic1.equals("เทียนหยด") && n < 43) {
+                //unknown.setText("Unidentified");
+                //button_result1.setText("The data not match");
+                return true;
+            } else if(pic1.equals("ลำโพงขาว") && n < 33) {
+                //unknown.setText(cutWongLeb(button_result1.getText().toString()));
+                return true;
+            } else if(pic1.equals("หงอนไก่") && n < 51){
+                return true;
+            } else if(pic1.equals("สกุลเอื้อง") && n < 60){
+                return true;
+            } else { // if more than threshold
+                return false;
+            }
         }else{
-            unknown.setText(cutWongLeb(button_result1.getText().toString()));
+            if (pic1.equals("เทียนหยด") && n < 57) {
+                //unknown.setText("Unidentified");
+                //button_result1.setText("The data not match");
+                return true;
+            } else if(pic1.equals("ลำโพงขาว") && n < 50) {
+                //unknown.setText(cutWongLeb(button_result1.getText().toString()));
+                return true;
+            } else if(pic1.equals("หงอนไก่") && n < 70){
+                return true;
+            } else if(pic1.equals("สกุลเอื้อง") && n < 71){
+                return true;
+            } else{
+                return false;
+            }
         }
     }
     private void getImagebyResult(){

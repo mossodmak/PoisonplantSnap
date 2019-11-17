@@ -27,6 +27,35 @@
         android:orientation="vertical"
         android:background="@color/zerowhite">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/show_detail_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:outlineProvider="none"
+                android:background="@drawable/ic_arrow_back_black_24dp_70"/>
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Plant Info"
+                android:gravity="center_horizontal"
+                android:textSize="24dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:text=""/>
+
+        </LinearLayout>
+
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="match_parent"

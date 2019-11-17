@@ -52,7 +52,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         titleView.setText(title);
         Picasso.get().load(image).into(imageTv);
     }
-    public void setShareDetails(Context ct,String user,  String imageURL, String timestamp, String plant, String percent, Uri uri){
+    public void setShareDetails(Context ct,String user,  String imageURL, String timestamp, String plant, String percent){
         TextView titleView = view.findViewById(R.id.gallery_title);
         TextView userView = view.findViewById(R.id.gallery_user);
         TextView dateView = view.findViewById(R.id.gallery_date);
@@ -65,9 +65,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         dateView.setText(timestamp);
         titleView.setText(plant);
         percentView.setText(percent);
-        if(uri != null){
-            Picasso.get().load(uri).into(profile_icon);
-        }
+
     }
     private ViewHolder.ClickListener mClickListener;
     public interface ClickListener{

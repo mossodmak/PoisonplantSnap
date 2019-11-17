@@ -4,9 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,7 +27,9 @@ public class ShowDetail extends AppCompatActivity {
     ImageView imageView;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
-
+    String destination, result;
+    Button btn_back;
+    Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +47,35 @@ public class ShowDetail extends AppCompatActivity {
         sympton = findViewById(R.id.sympton);
         recover = findViewById(R.id.recover);
 
-        String images = getIntent().getStringExtra("image");
+        //String images = getIntent().getStringExtra("image");
         String mtitle = getIntent().getStringExtra("title");
+        //Save destination for btn_back
+        destination = getIntent().getStringExtra("destination");
+        result = getIntent().getStringExtra("result");
+        bitmap = this.getIntent().getParcelableExtra("photo");
+        // back button
+        btn_back = findViewById(R.id.show_detail_back);
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if ("showresult".equalsIgnoreCase(destination)){
+                    Intent intent = new Intent(ShowDetail.this, ShowResult.class);
+                    intent.putExtra("result",result);
+                    intent.putExtra("photo", bitmap);
+                    startActivity(intent);
+                }else if("search".equalsIgnoreCase(destination)){
+                    Intent intent = new Intent(ShowDetail.this, MainActivity.class);
+                    String command = "search";
+                    intent.putExtra("command",command);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(ShowDetail.this, MainActivity.class);
+                    String command = "search";
+                    intent.putExtra("command", command);
+                    startActivity(intent);
+                }
+            }
+        });
         //String desc = getIntent().getStringExtra("description");
         //Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
         firebaseDatabase = FirebaseDatabase.getInstance();

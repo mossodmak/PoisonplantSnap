@@ -27,6 +27,16 @@
         android:outlineProvider="none"
         android:background="@drawable/ic_arrow_back_black_24dp_70"/>
 
+    <Button
+        android:id="@+id/show_result_close"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_close_black_24dp_70"
+        android:outlineProvider="none" />
+
     <ImageView
         android:id="@+id/show_result_imageResult"
         android:layout_width="224dp"
@@ -90,7 +100,32 @@
 
         </LinearLayout>
 <!--    </androidx.cardview.widget.CardView>-->
+    <LinearLayout
+        android:id="@+id/show_result_layout2"
+        android:layout_width="330dp"
+        android:layout_height="182dp"
+        android:layout_below="@+id/show_result_textResult"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/fade_layout"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
+        <TextView
+            android:id="@+id/show_result_unidentified"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/show_result_imageResult"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:background="@color/zerowhite"
+            android:text=" The data does not match with our plant"
+            android:textColor="@color/topic"
+            android:textSize="17dp" />
+    </LinearLayout>
     <Button
         android:id="@+id/btn_share"
         android:layout_below="@+id/show_result_textResult"

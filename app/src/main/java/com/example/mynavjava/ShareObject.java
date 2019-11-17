@@ -4,47 +4,39 @@ import android.net.Uri;
 
 public class ShareObject {
     private String imageURL, user, timestamp, plant, percent;
-    private Uri uri;
+    private Long timestampLong;
     public  ShareObject(){
 
     }
 
-    public ShareObject(String imageURL, String timestamp, String plant, String percent) {
-        user = "Anonymous";
+    public ShareObject(String imageURL, String timestamp, String plant, String percent, Long timestampLong) {
         this.imageURL = imageURL;
+        this.user = "Anonymous";
         this.timestamp = timestamp;
         this.plant = plant;
         this.percent = percent;
-        this.uri = null;
-    }
-    public ShareObject(String imageURL, String user, String timestamp, String plant, String percent) {
-        this.imageURL = imageURL;
-        this.user = user;
-        this.timestamp = timestamp;
-        this.plant = plant;
-        this.percent = percent;
-        this.uri = null;
+        this.timestampLong = timestampLong;
     }
 
-    public ShareObject(String imageURL, String user, String timestamp, String plant, String percent, Uri uri) {
+    public ShareObject(String imageURL, String user, String timestamp, String plant, String percent, Long timestampLong) {
         this.imageURL = imageURL;
         this.user = user;
         this.timestamp = timestamp;
         this.plant = plant;
         this.percent = percent;
-        this.uri = uri;
+        this.timestampLong = timestampLong;
     }
 
     public String getImageURL() {
         return imageURL;
     }
 
-    public Uri getUri() {
-        return uri;
+    public Long getTimestampLong() {
+        return timestampLong;
     }
 
-    public void setUri(Uri uri) {
-        this.uri = uri;
+    public void setTimestampLong(Long timestampLong) {
+        this.timestampLong = timestampLong;
     }
 
     public void setImageURL(String imageURL) {
