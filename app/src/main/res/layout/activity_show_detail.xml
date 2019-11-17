@@ -42,12 +42,13 @@
                 android:background="@drawable/ic_arrow_back_black_24dp_70"/>
 
             <TextView
-                android:layout_width="300dp"
+                android:layout_width="270dp"
                 android:layout_height="wrap_content"
-                android:text="Plant Info"
+                android:text="PLANT INFO"
                 android:gravity="center_horizontal"
                 android:textSize="24dp"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:layout_marginRight="26dp"/>
 
             <TextView
                 android:layout_width="40dp"
