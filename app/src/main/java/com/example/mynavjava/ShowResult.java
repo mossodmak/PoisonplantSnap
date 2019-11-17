@@ -100,6 +100,7 @@ public class ShowResult extends AppCompatActivity {
         initTensorFlowAndLoadModel(modelName);
         //result = null;
         result = this.getIntent().getStringExtra("result");
+        //Toast.makeText(this, "result: "+result, Toast.LENGTH_SHORT).show();
         //getUser login
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
@@ -156,6 +157,7 @@ public class ShowResult extends AppCompatActivity {
                 intent.putExtra("title",check);
                 intent.putExtra("result", result);
                 intent.putExtra("photo", bitmap);
+                intent.putExtra("modelName", modelName);
                 destination = "showresult";
                 intent.putExtra("destination", destination);
                 startActivity(intent);

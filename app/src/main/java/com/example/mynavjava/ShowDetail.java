@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +28,7 @@ public class ShowDetail extends AppCompatActivity {
     ImageView imageView;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
-    String destination, result;
+    String destination, result, modelName;
     Button btn_back;
     Bitmap bitmap;
 
@@ -48,10 +49,12 @@ public class ShowDetail extends AppCompatActivity {
         recover = findViewById(R.id.recover);
 
         //String images = getIntent().getStringExtra("image");
-        String mtitle = getIntent().getStringExtra("title");
+        String mtitle = this.getIntent().getStringExtra("title");
         //Save destination for btn_back
-        destination = getIntent().getStringExtra("destination");
-        result = getIntent().getStringExtra("result");
+        destination = this.getIntent().getStringExtra("destination");
+        result = this.getIntent().getStringExtra("result");
+        //Toast.makeText(this, "result: "+result, Toast.LENGTH_SHORT).show();
+        modelName = this.getIntent().getStringExtra("modelName");
         bitmap = this.getIntent().getParcelableExtra("photo");
         // back button
         btn_back = findViewById(R.id.show_detail_back);
@@ -60,8 +63,9 @@ public class ShowDetail extends AppCompatActivity {
             public void onClick(View v) {
                 if ("showresult".equalsIgnoreCase(destination)){
                     Intent intent = new Intent(ShowDetail.this, ShowResult.class);
-                    intent.putExtra("result",result);
                     intent.putExtra("photo", bitmap);
+                    intent.putExtra("result", result);
+                    intent.putExtra("modelName", modelName);
                     startActivity(intent);
                 }else if("search".equalsIgnoreCase(destination)){
                     Intent intent = new Intent(ShowDetail.this, MainActivity.class);
